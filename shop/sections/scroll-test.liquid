@@ -1,0 +1,104 @@
+<div class="test__flex relative">
+    <div id="project02" class="project project02">
+           <img src="https://cdn.shopify.com/s/files/1/0264/7818/2457/files/img_project02-icon.svg?v=1586261584" />
+           <h2>left test</h2>
+           <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed.</p>
+     </div>
+      <div id="project01" class="project project01">
+          <img src="https://cdn.shopify.com/s/files/1/0264/7818/2457/files/img_project01-icon.svg?v=1586254131" />
+          <h2>right test</h2>
+          <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed.</p>
+      </div>
+</div>
+<style>
+
+.test__flex{
+  display: flex;
+  justify-content: space-around;
+ }
+
+.project01{
+  transform: translateY(200px);
+  transition: all 2s ease-out;
+ }
+
+ .project02{
+   position: absolute;
+   top: 0;
+   left: 300px;
+   transform: translateY(200px);
+   transition: all 3s ease-out;
+  }
+
+.project {
+  text-align: center;
+  padding: 200px 0;
+  border-bottom: 1px #ebebeb solid;
+}
+
+.project.fade-in {
+  transform: translateY(0);
+}
+
+.project img {
+  width: 180px;
+  height: 180px;
+}
+.project p {
+  max-width: 300px;
+  margin: 0 auto;
+  color: #294D67;
+}
+
+</style>
+<script>
+  $(document).ready(function(){
+
+  	// Init ScrollMagic
+  	var controller = new ScrollMagic.Controller();
+
+  	// build a scene 01
+  	var ourScene = new ScrollMagic.Scene({
+  		triggerElement: '#project01',
+      duration: "100%",
+      triggerHook: 0
+  	})
+  	.setClassToggle('#project01', 'fade-in') // add class to project01
+  	.addIndicators({
+  		name: 'test 1',
+  		colorTrigger: 'red',
+  		colorStart: '#75C695'
+  	}) // this requires a plugin
+  	.addTo(controller);
+
+    // build a scene 02
+  	var ourScene = new ScrollMagic.Scene({
+  		triggerElement: '#project02',
+      duration: "100%",
+      triggerHook: 0
+  	})
+  	.setClassToggle('#project02', 'fade-in') // add class to project01
+  	.addIndicators({
+  		name: 'test 2',
+  		colorTrigger: 'blue',
+  		colorStart: '#75C695'
+  	}) // this requires a plugin
+  	.addTo(controller);
+
+  });
+
+</script>
+{% schema %}
+{
+  "name": "scroll",
+  "settings": [
+
+  ],
+  "presets": [
+		{
+			"name": "scroll",
+			"category": "Text"
+		}
+	]
+}
+{% endschema %}

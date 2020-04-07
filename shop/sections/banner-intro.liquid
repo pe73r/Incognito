@@ -1,0 +1,78 @@
+<style>
+
+  #spin {
+    color:{{ section.settings.color-spin }};
+  }
+
+</style>
+
+<section id="section-{{ section.id }}" class="section relative" data-section-id="{{ section.id }}" data-section-type="banner">
+  <div class="hero hero--medium">
+    <div id="banner-text" class="hero__inner">
+      <div class="page-width text-center" >
+        {%- if section.settings.title != blank -%}
+          <h2 id="mega-title" class="h1 banner-mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </div>
+   </div>
+  </div>
+  {% if section.settings.image != blank %}
+  <div class="ShoeImage" id="shoe">
+    <img src="{{section.settings.image | img_url:'master' }}" alt="">
+  </div>
+  {% endif %}
+  {% if section.settings.image-2 != blank %}
+    <div id="watch" class="WatchImage">
+      <img src="{{section.settings.image-2 | img_url:'master' }}" alt="">
+    </div>
+  {% endif %}
+  {% if section.settings.image-3 != blank %}
+    <div id="rimmel" class="RimmelImage"> 
+      <img src="{{section.settings.image-3 | img_url:'master' }}" alt="">
+    </div>
+  {% endif %}
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Banner intro",
+  "settings": [
+
+     {
+       "type": "textarea",
+       "id": "title",
+       "label": "Title",
+       "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+     },
+     {
+       "type": "color",
+       "id": "color-spin",
+       "label": "Color spin text",
+       "default": "#FDDB58"
+     },
+     {
+       "type": "image_picker",
+       "id": "image",
+       "label": "Image right side"
+     },
+     {
+       "type": "image_picker",
+       "id": "image-2",
+       "label": "Image left side"
+     },
+     {
+       "type": "image_picker",
+       "id": "image-3",
+       "label": "Image left side down"
+     }
+  ],
+  "presets": [
+		{
+			"name": "Banner Agency",
+			"category": "Text"
+		}
+	]
+}
+{% endschema %}

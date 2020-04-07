@@ -7561,3 +7561,71 @@ function onYouTubeIframeAPIReady() {
 }
 
 $(theme.init);
+
+
+
+///////// MAGIC SCROLL ////////////////
+
+$(document).ready(function(){
+
+  // Init ScrollMagic
+  var controller = new ScrollMagic.Controller();
+
+  // Scene shoe
+  var ourScene = new ScrollMagic.Scene({
+    triggerElement: '#banner-text',
+    duration: "100%",
+    triggerHook: 0
+  })
+  .setClassToggle('#shoe', 'shoe-position') // add class to project01
+  .addIndicators({
+    name: 'test 1',
+    colorTrigger: 'red',
+    colorStart: 'red'
+  }) // this requires a plugin
+  .addTo(controller);
+
+
+  // Scene Megatitle
+  var ourScene = new ScrollMagic.Scene({
+    triggerElement: '#banner-text',
+    duration: "100%",
+    triggerHook: 0
+  })
+  .setClassToggle('#mega-title', 'megatitle')
+  .addIndicators({
+    name: 'megatitle',
+    colorTrigger: 'blue',
+    colorStart: 'blue',
+    colorEnd: 'blue'
+  }) // this requires a plugin
+  .addTo(controller);
+
+
+  // Scene Watch
+  var ourScene = new ScrollMagic.Scene({
+    triggerElement: '#banner-text',
+    duration: "100%",
+    triggerHook: 0
+  })
+  .setClassToggle('#watch', 'watch')
+  .addIndicators({
+    name: 'watch'
+  }) // this requires a plugin
+  .addTo(controller);
+
+
+  // Scene Rimmel
+  var ourScene = new ScrollMagic.Scene({
+    triggerElement: '#banner-text',
+    duration: "100%",
+    triggerHook: 0
+  })
+  .setClassToggle('#rimmel', 'rimmel')
+  .addIndicators({
+    name: 'watch'
+  }) // this requires a plugin
+  .addTo(controller);
+
+
+ });
