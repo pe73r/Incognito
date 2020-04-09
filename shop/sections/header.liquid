@@ -58,8 +58,9 @@
     {% endif %}
   {% endif %}
 
-  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
-    <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
+  <header class="{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}" role="banner">
+    <div class="container container--bordered">
+     <div class="grid--header grid--no-gutters site-header__mobile-nav">
       {% if section.settings.align_logo == 'center' %}
         {%- assign logo_classes = 'medium-up--one-third medium-up--push-one-third logo-align--center' -%}
       {% else %}
@@ -107,12 +108,12 @@
       </div>
 
       {% if section.settings.align_logo == 'left' %}
-        <nav class="grid__item medium-up--one-half small--hide" id="AccessibleNav" role="navigation">
+        <nav class="grid__item medium-up--one-quarter small--hide" id="AccessibleNav" role="navigation">
           {% include 'site-nav', linklist: section.settings.main_linklist %}
         </nav>
       {% endif %}
 
-      <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
+      <!-- <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
         <div class="site-header__icons-wrapper">
 
           <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
@@ -150,10 +151,10 @@
             </button>
           {% endunless %}
         </div>
+      </div> -->
 
-      </div>
     </div>
-
+  </div> <!--finish header desktop -->
     <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
       <ul id="MobileNav" class="mobile-nav">
         {% for link in linklists[section.settings.main_linklist].links %}

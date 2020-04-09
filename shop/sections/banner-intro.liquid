@@ -1,36 +1,46 @@
 <style>
-
   #spin {
     color:{{ section.settings.color-spin }};
   }
-
 </style>
-
 <section id="section-{{ section.id }}" class="section relative" data-section-id="{{ section.id }}" data-section-type="banner">
-  <div class="hero hero--medium">
-    <div id="banner-text" class="hero__inner">
-      <div class="page-width text-center" >
-        {%- if section.settings.title != blank -%}
-          <h2 id="mega-title" class="h1 banner-mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title }}</h2>
-        {%- endif -%}
+  <div class="container container--bordered">
+    <div class="hero hero--medium">
+      <div id="banner-text" class="hero__inner">
+        <div class="page-width text-center" >
+          {%- if section.settings.title != blank -%}
+            <h2 id="mega-title" class="h1 banner-mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title }}</h2>
+          {%- endif -%}
+        </div>
+     </div>
+    </div>
+    <div class="KeepGoing align-center">
+      {% if  section.settings.next != blank %}
+        <span class="KeepGoingText">{{ section.settings.next }}</span>
+      {% endif %}
+      <svg class="arrows">
+         <path class="a1" d="M0 0 L15 10 L30 0"></path>
+         <path class="a2" d="M0 20 L15 30 L30 20"></path> 
+         <!-- <path class="a3" d="M0 40 L10 52 L20 40"></path>  -->
+      </svg>
+    </div>
+
+    {% if section.settings.image != blank %}
+    <div id="shoe" class="ShoeImage desktop-only">
+      <img src="{{section.settings.image | img_url:'master' }}" alt="">
+    </div>
+    {% endif %}
+    {% if section.settings.image-2 != blank %}
+      <div id="watch" class="WatchImage desktop-only">
+        <img src="{{section.settings.image-2 | img_url:'master' }}" alt="">
       </div>
-   </div>
+    {% endif %}
+    {% if section.settings.image-3 != blank %}
+      <div id="rimmel" class="RimmelImage desktop-only">
+        <img src="{{section.settings.image-3 | img_url:'master' }}" alt="">
+      </div>
+    {% endif %}
   </div>
-  {% if section.settings.image != blank %}
-  <div class="ShoeImage" id="shoe">
-    <img src="{{section.settings.image | img_url:'master' }}" alt="">
-  </div>
-  {% endif %}
-  {% if section.settings.image-2 != blank %}
-    <div id="watch" class="WatchImage">
-      <img src="{{section.settings.image-2 | img_url:'master' }}" alt="">
-    </div>
-  {% endif %}
-  {% if section.settings.image-3 != blank %}
-    <div id="rimmel" class="RimmelImage"> 
-      <img src="{{section.settings.image-3 | img_url:'master' }}" alt="">
-    </div>
-  {% endif %}
 </section>
 
 
@@ -45,6 +55,12 @@
        "id": "title",
        "label": "Title",
        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+     },
+     {
+       "type": "text",
+       "id": "next",
+       "label": "Keep goign text",
+       "default": "Know more about us"
      },
      {
        "type": "color",

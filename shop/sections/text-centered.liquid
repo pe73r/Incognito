@@ -1,0 +1,35 @@
+<section id="section-{{ section.id }}" class="relative" data-section-id="{{ section.id }}" data-section-type="text-centered">
+  <div class="container container--bordered">
+    <div class="hero hero--medium">
+      <div id="banner-text" class="hero__inner">
+        <div class="page-width text-center" >
+          {%- if section.settings.text != blank -%}
+             <h2 id="mega-title" class="h1 TextCenteredTitle{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.text }}</h2>
+          {%- endif -%}
+          <div class="arrowDown">
+            {% render 'icon-arrow-down'%}
+          </div>
+        </div>
+     </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Text centered",
+  "settings": [
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> "
+      }
+  ],
+  "presets": [
+		{
+			"name": "Text centered",
+			"category": "Text"
+		}
+	]
+}
+{% endschema %}

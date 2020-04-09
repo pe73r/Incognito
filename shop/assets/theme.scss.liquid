@@ -7,6 +7,7 @@
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
 
+
 /*================ SASS HELPERS ================*/
 /*============================================================================
   Convert pixels to ems
@@ -397,10 +398,16 @@ $color-navigation-text: {{ settings.color_text }};
 $color-btn-primary: {{ settings.color_button }};
 $color-btn-primary-text: {{ settings.color_button_text }};
 
+// Button primary
+$color-bg-btn-primary:{{ settings.bg_btn_primary }};
+$color-text-btn-primary:{{ settings.text_btn_primary }};
+$color-btn-primary-focus: {{ settings.hover_bg_btn_primary}};
+
+
+
 // Hover and focus states
 $color-text-focus: adaptiveColor({{ settings.color_text }}, {{ settings.color_text | color_brightness }});
 $color-overlay-text-focus: adaptiveColor({{ settings.color_image_overlay_text }}, {{ settings.color_image_overlay_text | color_brightness }});
-$color-btn-primary-focus: adaptiveColor({{ settings.color_button }}, {{ settings.color_button | color_brightness }});
 $color-btn-social-focus: adaptiveColor({{ settings.color_borders }}, {{ settings.color_borders | color_brightness }});
 $color-small-button-text-border-focus: adaptiveColor({{ settings.color_small_button_text_border }}, {{ settings.color_small_button_text_border | color_brightness }});
 $predictive-search-focus: adaptiveBackgroundColor({{ settings.color_body_bg }}, {{ settings.color_body_bg | color_brightness }});
@@ -508,11 +515,35 @@ $color-slideshow-dots: #fff;
 
 /*================ Typography ================*/
 
+
+@font-face {
+ font-family: "Myriad_Pro_Bold_Italic";
+ src: url("https://cdn.shopify.com/s/files/1/0264/7818/2457/files/Myriad_Pro_Bold_Italic.ttf?v=1586424975") format("ttf");
+}
+
+@font-face {font-family: "Myriad Pro"; src: url("//db.onlinewebfonts.com/t/f3b65bc5f78ed2b3748f81383222dd43.eot");
+  src: url("//db.onlinewebfonts.com/t/f3b65bc5f78ed2b3748f81383222dd43.eot?#iefix") format("embedded-opentype"),
+       url("//db.onlinewebfonts.com/t/f3b65bc5f78ed2b3748f81383222dd43.woff2") format("woff2"),
+       url("//db.onlinewebfonts.com/t/f3b65bc5f78ed2b3748f81383222dd43.woff") format("woff"),
+       url("//db.onlinewebfonts.com/t/f3b65bc5f78ed2b3748f81383222dd43.ttf") format("truetype"),
+       url("//db.onlinewebfonts.com/t/f3b65bc5f78ed2b3748f81383222dd43.svg#Myriad Pro") format("svg"); }
+
+@mixin myriad {
+		font-family: "Myriad Pro", sans-serif;
+    letter-spacing: -1px;
+	}
+
+ .myriad{
+		@include myriad;
+ }
+
 {% assign header_font = settings.type_header_font %}
 {% assign base_font = settings.type_base_font %}
+{% assign button_font = settings.button_font %}
 
 {{ header_font | font_face }}
 {{ base_font | font_face }}
+{{ button_font | font_face }}
 
 {%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
 {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
@@ -531,12 +562,21 @@ $font-stack-header: {{ header_font.family }}, {{ header_font.fallback_families }
 $font-style-header: {{ header_font.style }};
 $font-weight-header: {{ header_font.weight }};
 
+$font-stack-button: {{ button_font.family }}, {{ button_font.fallback_families }};
+$font-style-button: {{ button_font.style }};
+$font-weight-button: {{ button_font.weight }};
+
+
+
 $font-stack-body: {{ base_font.family }}, {{ base_font.fallback_families }};
 $font-style-body: {{ base_font.style }};
 $font-weight-body: {{ base_font.weight }};
 
-$font-size-header: {{ settings.type_header_base_size }} * 1px;
 
+/*================ font size ================*/
+
+$font-size-header: {{ settings.type_header_base_size }} * 1px;
+$font-size-button: {{ settings.button_size }}px;
 $font-size-base: {{ settings.type_base_size }}px; // Henceforth known as 1em
 
 $font-stack-cart-notification: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1905,15 +1945,13 @@ a[href^="tel"] {
   border: 1px solid transparent;
   border-radius: $border-radius;
   padding: $input-padding-top-bottom-small $input-padding-left-right-small;
-  background-color: $color-btn-primary;
-  color: $color-btn-primary-text;
-  font-family: $font-stack-header;
-  font-style: $font-style-header;
-  font-weight: $font-weight-header;
+  // background-color: $color-btn-primary;
+  // color: $color-btn-primary-text;
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
   white-space: normal;
-  font-size: $font-size-base - 2;
+  font-size: $font-size-button - 2;
 
   @include media-query($medium-up) {
     padding: $input-padding-top-bottom $input-padding-left-right;
@@ -1934,6 +1972,27 @@ a[href^="tel"] {
   &[aria-disabled] {
     cursor: default;
     opacity: 0.5;
+  }
+}
+
+.btn--primary{
+  background-color: transparent;
+  color: $color-text-btn-primary;
+  background-color: $color-bg-btn-primary;
+  border-color:  $color-text-btn-primary;
+
+  font-family: $font-stack-button;
+  font-style: $font-style-button;
+  font-weight: $font-weight-button;
+
+  border: 1px solid $color-text;
+  box-shadow:-5px 5px $color-text;
+
+  &:not([disabled]):hover,
+  &:focus {
+    background-color: transparent;
+    background-color: $color-btn-primary-focus;
+    border-color: $color-text;
   }
 }
 
@@ -1982,6 +2041,59 @@ a[href^="tel"] {
   }
 }
 
+/*=========== Button custom ========*/
+
+.button {
+  display: inline-flex;
+  height: 40px;
+  width: 230px;
+  background-color: white;
+  box-shadow: -8px 8px white;
+  border: 1px solid $color-text;
+  color: $color-text;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+}
+
+.button-custom {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+   &:hover{
+     box-shadow: -8px 8px black;
+   }
+   a {
+     position: relative;
+     transition: all .35s ease-Out;
+   }
+}
+
+.button-slide {
+  width: 100%;
+  height: 100%;
+  left: -230px;
+  position: absolute;
+  transition: all .35s ease-Out;
+  bottom: 0;
+
+}
+
+.button-custom:hover .button-slide {
+  left: 0;
+}
+
+.button-custom:hover a {
+  color: $color-text;
+  font-weight: bold;
+}
+
+
 /*================ Button variations ================*/
 @include media-query($small) {
   .btn--small-wide {
@@ -2024,6 +2136,7 @@ a[href^="tel"] {
     margin-right: 10px;
   }
 }
+
 
 /*================ Force an input/button to look like a text link ================*/
 .text-link {
@@ -8880,9 +8993,14 @@ main {
 
 /*================ Container ================*/
 
+.container--bordered{
+  border-left: 1px solid $color-text;
+  border-right: 1px solid $color-text;
+}
+
 .container {
   max-width: 1400px;
-  width: 85%;
+  width: 95%;
   margin: auto;
 }
 .container--small {
@@ -8909,9 +9027,22 @@ main {
   font-size: 0;
 }
 
-/*=========================================*/
+
 /*================ SECTIONS ================*/
-/*=========================================*/
+
+/*================ Header ================*/
+.site-header__logo-link{
+  font-size: 20px;
+}
+
+nav{
+  font-size: 16px;
+}
+
+.grid--header{
+  display: flex;
+  justify-content: space-between;
+}
 
 /*================ Banner ================*/
 
@@ -8979,4 +9110,154 @@ main {
 
 .rimmel{
    transform: translateY(-100px);
+}
+
+.banner-logo{
+  max-width: 180px;
+  margin: auto;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  opacity: .8;
+}
+
+.KeepGoing{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // svg{
+  //   width: 25px;
+  //   height: 25px;
+  //   margin: auto;
+  //   opacity: .6;
+  // }
+}
+
+.arrows {
+	width: 40px;
+  margin: 0 auto;
+}
+
+.arrows path {
+	stroke: $color-text;
+	fill: transparent;
+	stroke-width: 1px;
+	animation: arrow 5s infinite;
+	-webkit-animation: arrow 5s infinite;
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay:-0.5s;
+	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+	animation-delay:0s;
+	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+
+/*================ Text centered ================*/
+
+.TextCenteredTitle{
+  color: $color-text;
+  transform: translateY(0);
+  transition: all 3s ease-out;
+  max-width: 700px;
+  margin: auto;
+
+}
+
+
+.myriad:before{
+  content:"";
+ display:inline-block;
+ position: relative;
+ top:5px;
+ right: -2px;
+ width:45px;
+ height:45px;
+ background:url(https://cdn.shopify.com/s/files/1/0264/7818/2457/files/shopi_bag.png?v=1586429879) no-repeat;
+ background-size:100%;
+ }
+
+.arrowDown{
+  max-width: 100px;
+  margin: 30px auto;
+   svg{
+     width: 30px;
+     height: 30px;
+   }
+}
+
+/*================ Propositions ================*/
+
+.PropositionsContent{
+  padding: 50px;
+  min-height: 550px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+}
+
+.block__bordered{
+  border-right: 1px solid $color-text;
+}
+
+.number__line{
+  width: 40px;
+  height: 1px;
+  background-color: #8a8f93;
+  margin-left: 10px;
+}
+
+.slide__counter{
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.PropositionTitle{
+  margin: 0;
+}
+
+.PropositionSubtitle{
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.PropositionsButton{
+  margin: 0 auto;
+}
+
+@media #{$portable} {
+  .PropositionsContent{
+    padding: 15px;
+  }
 }
