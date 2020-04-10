@@ -1372,9 +1372,9 @@ $grid-breakpoints: (
 }
 
 /*================ #Basic Styles ================*/
-body,
-html {
+body{
   background-color: $color-body;
+  transition: all 3s ease-out;
 }
 
 .page-width {
@@ -2090,7 +2090,7 @@ a[href^="tel"] {
 
 .button-custom:hover a {
   color: $color-text;
-  font-weight: bold;
+
 }
 
 
@@ -6390,7 +6390,7 @@ $nav-button-padding: 15px;
 .site-header__mobile-nav {
   z-index: $z-index-mobile-nav;
   position: relative;
-  background-color: $color-body;
+  // background-color: $color-body;
 
   @include media-query($small) {
     @include display-flexbox();
@@ -9182,6 +9182,12 @@ nav{
 
 /*================ Text centered ================*/
 
+
+.body-color-change{
+  background-color:  #f8e6fa;
+
+}
+
 .TextCenteredTitle{
   color: $color-text;
   transform: translateY(0);
@@ -9251,6 +9257,15 @@ nav{
   font-size: 20px;
   margin-bottom: 30px;
 }
+.ProposotionsText{
+  min-height: 300px;
+}
+.PropositionsImage{
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  min-height: 300px;
+}
 
 .PropositionsButton{
   margin: 0 auto;
@@ -9260,4 +9275,27 @@ nav{
   .PropositionsContent{
     padding: 15px;
   }
+}
+
+@media #{$pocket} {
+  .block__bordered{
+    border-right: none;
+  }
+
+  .block__bordered_top {
+    border-top: 1px solid $color-text;
+  }
+
+  .PropositionsContent{
+    padding: 50px 20px;
+    border-bottom: 1px solid $color-text;
+  }
+
+  .ProposotionsText{
+    min-height: 250px;
+  }
+  .PropositionsImage{
+    min-height: 280px;
+  }
+
 }

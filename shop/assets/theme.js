@@ -7627,5 +7627,20 @@ $(document).ready(function(){
   }) // this requires a plugin
   .addTo(controller);
 
+  // Scene Color body
+  var ourScene = new ScrollMagic.Scene({
+    triggerElement: '.section-text-centered',
+    duration: "200%",
+    triggerHook: 0
+  })
+  .setClassToggle('#body', 'body-color-change')
+  .addIndicators({
+    name: 'background-color',
+    colorTrigger: 'yelow',
+    colorStart: 'yellow',
+    colorEnd: 'yellow'
+  }) // this requires a plugin
+  .addTo(controller);
+
 
  });

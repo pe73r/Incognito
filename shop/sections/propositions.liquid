@@ -1,9 +1,9 @@
 <style >
  {% for block in section.blocks %}
   {% if block.settings.bg != blank %}
-    #block-{{ block.id }} .PropositionsContent{
+    /* #block-{{ block.id }} .PropositionsContent{
       background-image: url("{{ block.settings.bg | img_url:'master' }}");
-    }
+    } */
   {% endif %}
     #block-{{ block.id }} .button-slide{
        background: {{ block.settings.button-color }};
@@ -16,21 +16,28 @@
        {% assign number = 0 %}
         {% for block in section.blocks %}
          <div id="block-{{ block.id }}" class="1/3--lap-and-up grid__cell">
-            <div class="PropositionsContent {% unless forloop.last == true %} block__bordered {% endunless %}">
+            <div class="PropositionsContent {% unless forloop.last == true %} block__bordered {% endunless %} {% if forloop.first == true %} block__bordered_top {% endif %}">
               <div>
-                 <div class="slide__counter">
-                   {% assign number = number | plus:1 %}
-                   <span>{{ number }}</span>
-                   <p class="number__line"></p>
-                 </div>
-                 <h2 class="h1 PropositionTitle">{{ block.settings.title }}</h2>
-                 <p class="PropositionSubtitle">{{ block.settings.subtitle }}</p>
-                 <div class="">
-                   {{ block.settings.content }}
-                 </div>
+                <div class="ProposotionsText">
+                  <div class="slide__counter">
+                    {% assign number = number | plus:1 %}
+                    <span>{{ number }}</span>
+                    <p class="number__line"></p>
+                  </div>
+                  <h2 class="h1 PropositionTitle" data-aos="fade-up" data-aos-duration="5000" data-aos-easing="ease-in-out">{{ block.settings.title }}</h2>
+                  <p class="PropositionSubtitle" data-aos="fade-up" data-aos-duration="4000">{{ block.settings.subtitle }}</p>
+                  <div class="" data-aos="fade-up" data-aos-duration="4000">
+                    {{ block.settings.content }}
+                  </div>
+                </div>
+                 {% if block.settings.bg != blank %}
+                   <div class="PropositionsImage" data-aos="fade-up" data-aos-duration="4000">
+                      <img src="{{ block.settings.bg | img_url:'master' }}" alt="">
+                   </div>
+                 {% endif %}
               </div>
                {% if block.settings.button != blank %}
-               <div class="PropositionsButton">
+               <div class="PropositionsButton" data-aos="fade-up" data-aos-duration="4000">
                  <div class="button button-custom">
                     <div class="button-slide"></div>
                     <a href="{{ block.settings.url }}">{{ block.settings.button }}</a>
@@ -43,6 +50,11 @@
      </div>
   </div>
 </section>
+
+<script>
+    AOS.init();
+</script>
+
 {% schema %}
 {
   "name": "Propositions",
