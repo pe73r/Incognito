@@ -1,0 +1,109 @@
+<style>
+ @media screen and (min-width: 800px){
+  .mobile-portfolio-picto {
+       top: {{ block.settings.picto-vertical }}%;
+       left: {{ block.settings.picto-horizontal }}%;
+   }
+ }
+</style>
+<section  id="section-{{ section.id }}" class="section mobile-portfolio" data-section-id="{{ section.id }}" data-section-type="mobile-portfolio">
+   <div class="container--large container--bordered">
+      <div class="grid grid--center grid--middle grid--flush">
+         <div class="7/12--lap-and-up grid__cell relative">
+            <div class="mobile-portfolio__content relative" data-aos="fade-right">
+              {% if section.settings.image != blank %}
+                <img class="full-width mobile-portfolio-image" src="{{ section.settings.image | img_url:'master' }}" alt="{{ section.settings.image.alt }}">
+              {% endif %}
+              <h2 class="h1">{{ section.settings.design-title}}</h2>
+              <div class="mobile-portfolio__text">{{ section.settings.design-text }}</div>
+              {% if section.settings.design-picto != blank %}
+                <div class="mobile-portfolio-picto">
+                  <img src="{{ section.settings.design-picto | img_url: 'master' }}">
+                </div>
+              {% endif %}
+            </div>
+         </div>
+         <div class="5/12--lap-and-up grid__cell">
+           <div class="mobile__slider" data-aos="fade-left">
+              <div class="mobile-portfolio__carousel">
+                 <div class="carousel" data-flickity='{ "prevNextButtons": false }'>
+                   {% for block in section.blocks %}
+                     <div class="carousel-cell">
+                       <img class="full-width" src="{{ block.settings.slide | img_url:'master' }}" alt="{{ section.settings.slide-1.alt }}">
+                     </div>
+                   {% endfor %}
+                </div>
+              </div>
+           </div>
+         </div>
+      </div>
+   </div>
+</section>
+{% schema %}
+{
+  "name": "Mobile portfolio",
+  "settings": [
+             {
+               "type": "image_picker",
+               "id": "image",
+               "label": "Image"
+             },
+             {
+               "type": "text",
+               "id": "design-title",
+               "label": "title",
+               "default": "Responsive design"
+             },
+     				 {
+     				   "type": "richtext",
+     				   "id": "design-text",
+     				   "label": "text",
+     				   "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+     				 },
+     				 {
+     				   "type": "image_picker",
+     				   "id": "design-picto",
+     				   "label": "picto"
+     				 },
+      				{
+       			    "type":      "range",
+       			    "id":        "picto-vertical",
+       			    "min":       0,
+       			    "max":        100,
+       			    "step":       1,
+       			    "unit":       "%",
+       			    "label":     "picto vertical position",
+       			    "default":   50
+       			 },
+      				{
+      					"type":      "range",
+      					"id":        "picto-horizontal",
+      					"min":       0,
+      					"max":        100,
+      					"step":       1,
+      					"unit":       "%",
+      					"label":     "picto horizontal position",
+      					"default":   50
+      			 }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+            {
+              "type": "image_picker",
+              "id": "slide",
+              "label": "Image slide"
+            }
+      ]
+    }
+  ],
+  "presets": [
+		{
+			"name": "Mobile portfolio",
+			"category": "Image"
+		}
+	]
+}
+{% endschema %}

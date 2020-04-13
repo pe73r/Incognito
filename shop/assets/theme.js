@@ -7642,5 +7642,22 @@ $(document).ready(function(){
   }) // this requires a plugin
   .addTo(controller);
 
+  // Scene arrow
+  var ourScene = new ScrollMagic.Scene({
+    triggerElement: '#banner-text',
+    duration: "100%",
+    triggerHook: 0,
+    reverse: false
+  })
+  .setClassToggle('#intro-arrow', 'hide')
+  .addIndicators({
+    name: 'arrow',
+    colorTrigger: 'yellow',
+    colorStart: 'yellow',
+    indent: 300,
+    colorEnd: 'yellow'
+  }) // this requires a plugin
+  .addTo(controller);
+
 
  });

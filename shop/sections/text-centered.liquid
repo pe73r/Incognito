@@ -1,13 +1,13 @@
 <section id="section-{{ section.id }}" class="relative section-text-centered" data-section-id="{{ section.id }}" data-section-type="text-centered">
   <div class="container container--bordered">
-    <div class="hero hero--medium">
-      <div id="banner-text" class="hero__inner" data-aos="fade-up" data-aos-easing="ease-in-out">
+    <div class="hero hero--large">
+      <div id="banner-text" class="hero__inner" data-aos="fade-up" data-aos-duration="4000" data-aos-easing="ease-in-out">
         <div class="page-width text-center" >
           {%- if section.settings.text != blank -%}
              <h2 id="mega-title" class="h1 TextCenteredTitle{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.text }}</h2>
           {%- endif -%}
-          <div class="arrowDown">
-            {% render 'icon-arrow-down'%}
+          <div class="arrowDown relative">
+            {% render 'icon-arrow-down' %}
           </div>
         </div>
      </div>
