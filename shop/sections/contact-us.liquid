@@ -1,0 +1,215 @@
+<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="contact">
+	<div class="container--large container--bordered relative">
+	<div class="section--form">
+	<div class="container--form contact mega-section__contact align-center">
+		{% unless section.settings.title == blank %}
+			<h2 class="ContactMegaTitle">{{ section.settings.title }}<span class="title__line"></span></h1>
+		{% endunless %}
+		{% form 'contact' , class:'form' %}
+			{% if form.posted_successfully? %}
+				<p class="form-success">
+				  {{ 'contact.form.post_success' | t }}
+				</p>
+			{% endif %}
+      <!-- contact form -->
+			<div class="contact-form__cells">
+		   <div class="grid grid--flush">
+				<!-- <h2 class="form__subtitle"> Un brief à nous envoyer ?</h2> -->
+				{{ form.errors | default_errors }}
+				<div class="1/2--handheld-and-up grid__cell contact__field">
+					<!-- <label class="contact__label" for="ContactFormName">{{ 'contact.form.name' | t }}</label> -->
+					<input class="input input--full" type="text"
+						name="contact[name]"
+						id="ContactFormName"
+						placeholder="{{ 'contact.form.name' | t }}"
+						value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+				</div>
+				<div class="1/2--handheld-and-up grid__cell contact__field">
+					<!-- <label class="contact__label" for="ContactFormLastName">{{ 'contact.form.lastname' | t }}</label> -->
+					<input class="input input--full" type="text"
+					  name="contact[lastname]"
+						id="ContactFormlastName"
+						placeholder="{{ 'contact.form.lastname' | t }}"
+						value="{% if form.lastname %}{{ form.lastname }}{% elsif customer %}{{ customer.lastname }}{% endif %}" required>
+				</div>
+				<div class="1/2--handheld-and-up grid__cell contact__field">
+					<!-- <label class="contact__label" for="ContactFormCompany">{{ 'contact.form.company' | t }}</label> -->
+					<input class="input input--full" type="text"
+					  name="contact[company]"
+						id="ContactFormCompany"
+						placeholder="{{ 'contact.form.company' | t }}"
+						value="{% if form.company %}{{ form.company }}{% elsif customer %}{{ customer.company }}{% endif %}" required>
+				</div>
+				<div class="1/2--handheld-and-up grid__cell contact__field">
+					<!-- <label class="contact__label" for="ContactFormFunction">{{ 'contact.form.function' | t }}</label> -->
+					<input class="input input--full" type="text"
+					  name="contact[function]"
+						id="ContactFormFunction"
+						placeholder="{{ 'contact.form.function' | t }}"
+						value="{% if form.function %}{{ form.function }}{% elsif customer %}{{ customer.function }}{% endif %}">
+				</div>
+				<div class="1/2--handheld-and-up grid__cell contact__field">
+					<!-- <label class="contact__label" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label> -->
+					<input class="input input--full" type="text"
+					  name="contact[phone]"
+						id="ContactFormPhone"
+						placeholder="{{ 'contact.form.phone' | t }}"
+						value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" required>
+				</div>
+				<div class="1/2--handheld-and-up grid__cell contact__field">
+					<!-- <label class="contact__label" for="ContactFormEmail">{{ 'contact.form.email' | t }}</label> -->
+					<input class="input input--full" type="email"
+						name="contact[email]"
+						id="ContactFormEmail"
+						placeholder="{{ 'contact.form.email' | t }}"
+						value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+						spellcheck="false"
+						autocomplete="off"
+						autocapitalize="off"
+						required>
+				</div>
+      </div>
+		</div>
+		<!-- Type of project -->
+		<div class="grid">
+			<h2 class="h2">À propos de votre projecczxcat</h2>
+				<div class="1/3--handheld-and-up grid__cell contact__field">
+						<div class="skill-box block__bordered">
+              <h3 class="h4">Création Boutique</h3>
+		            <div class="skill-item" >
+									 <input id="theme-mesure" data-contact-project type="checkbox" name="project-skills[]" value="Theme sur mesure" data-parsley-mincheck="1">
+									 <label class="form-checkbox form--label" for="theme-mesure" >
+										  <!-- {%- include 'icon-form-theme3' class:'form--svg' -%} -->
+									   <span>Thème sur-mesure</span>
+								   </label>
+		            </div>
+                <div id="dropdown-1" class="skill-dropdown" style="display:none;">
+      		           <div class="skill-item">
+      			           <input  id="mesure-maquettes" data-contact-project type="checkbox" name="project-skills[]" value="sur-mesure-maquettes" data-parsley-mincheck="1" >
+      									 <label class="form-checkbox skill_planning-strategique-ux-design" for="mesure-maquettes">
+      										<span>Maquettes</span>
+      				          </label>
+      						   </div>
+      						   <div class="skill-item">
+      				         <input id="mesure-branding" data-contact-project  type="checkbox" name="project-skills[]" value="sur-mesure-branding" data-parsley-mincheck="1">
+      									<label class="form-checkbox skill_conception-creation" for="mesure-branding">
+      				      	    <span>Branding & design</span>
+      				          </label>
+      							 </div>
+                     <div class="skill-item">
+      				         <input id="mesure-referencement" data-contact-project  type="checkbox" name="project-skills[]" value="sur-mesure-referencement" data-parsley-mincheck="1">
+      									<label class="form-checkbox skill_conception-creation" for="mesure-referencement">
+      				      	    <span>Référencement</span>
+      				          </label>
+      							 </div>
+                     <div class="skill-item">
+      				         <input id="mesure-marketing" data-contact-project  type="checkbox" name="project-skills[]" value="sur-mesure-marketing" data-parsley-mincheck="1">
+      									<label class="form-checkbox skill_conception-creation" for="mesure-marketing">
+      				      	    <span>Email-marketing</span>
+      				          </label>
+      							 </div>
+                     <div class="skill-item">
+      				         <input id="mesure-optimisation" data-contact-project  type="checkbox" name="project-skills[]" value="sur-mesure-optimisation" data-parsley-mincheck="1">
+      									<label class="form-checkbox skill_conception-creation" for="mesure-optimisation">
+      				      	    <span>Optimisation</span>
+      				          </label>
+      							 </div>
+               </div>
+               <div class="skill-item">
+                 <input id="theme-existant" data-contact-project  type="checkbox" name="project-skills[]" value="Theme existant" data-parsley-mincheck="1">
+                  <label class="form-checkbox skill_conception-creation" for="theme-existant">
+                    <!-- {%- include 'icon-form-theme1' class:'form--svg' -%} -->
+                    <span>Thème existant</span>
+                  </label>
+               </div>
+			     </div>
+				</div>
+				<div class="1/3--handheld-and-up grid__cell contact__field">
+						<div class="skill-box block__bordered">
+              <h3 class="h4">Maintenance</h3>
+		            <div class="skill-item">
+			           <input  id="besoins-ponctuels" data-contact-project type="checkbox" name="project-skills[]" value="besoins-ponctuels" data-parsley-mincheck="1">
+									 <label class="form-checkbox skill_planning-strategique-ux-design" for="besoins-ponctuels">
+                    <!-- {%- include 'icon-form-question-2' class:'form--svg' -%} -->
+										<span>Besoins ponctuels</span>
+				          </label>
+						   </div>
+						   <div class="skill-item">
+				         <input id="besoins-long-terme" data-contact-project  type="checkbox" name="project-skills[]" value="besoins-long-terme" data-parsley-mincheck="1">
+									<label class="form-checkbox skill_conception-creation" for="besoins-long-terme">
+										<!-- {%- include 'icon-form-appointment' class:'form--svg' -%} -->
+				      	    <span>Besoins à long terme</span>
+				          </label>
+							 </div>
+			     </div>
+				</div>
+				<div class="1/3--handheld-and-up grid__cell contact__field">
+						<div class="skill-box">
+              <h3 class="h4">Applications</h3>
+								<div class="skill-item">
+									 <input id="community" data-contact-project type="checkbox" name="project-skills[]" value="Référencement" data-parsley-mincheck="1">
+									 <label class="form-checkbox form--label" for="community">
+											<!-- {%- include 'icon-form-ordi' class:'form--svg' -%} -->
+										 <span>Connecteurs/Intégrations</span>
+									 </label>
+								</div>
+								<div class="skill-item">
+								 <input  id="referencement" data-contact-project type="checkbox" name="project-skills[]" value="Email marketing" data-parsley-mincheck="1">
+									 <label class="form-checkbox skill_planning-strategique-ux-design" for="referencement">
+										 <!-- {%- include 'icon-form-mesure' class:'form--svg' -%} -->
+										<span>Fonctionnalités sur-mesure</span>
+									</label>
+							 </div>
+					 </div>
+				</div>
+				<input data-contact-skills type="hidden" name="contact[skills]" value="">
+		</div>
+		<!-- Text area -->
+    <div class="form__text-area">
+			 <!-- <h2 class="h2">Décrivez votre projet en quelques lignes</h2> -->
+	     	 <div class="contact__field">
+						<!-- <label class="contact__label" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label> -->
+						<textarea class="input input--full" rows="10"
+							name="contact[body]"
+							id="ContactFormMessage"
+							placeholder="{{ 'contact.form.message' | t }}" required>
+							{%- if form.body -%}
+							{{- form.body -}}
+							{%- endif -%}
+						</textarea>
+					</div>
+					<div class="align-left">
+						<input data-contact-submit class="button button-custom" type="submit" value="{{ 'contact.form.send' | t }}">
+					</div>
+		</div>
+		{% endform %}
+		 </div>
+   </div> <!-- section form -->
+    <div class="ImageContactForm">
+      <img src="{{ section.settings.image | img_url:'master' }}" alt="{{ section.settings.image.alt }}">
+    </div>
+	</div>
+</section>
+{% schema %}
+{
+  "name": "Contact Form zerance",
+  "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Titre"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+  ],
+  "presets": [
+		{
+			"name": "Contact us",
+			"category": "Contact"
+		}
+	]
+}
+{% endschema %}

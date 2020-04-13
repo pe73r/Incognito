@@ -5,16 +5,21 @@
        left: {{ block.settings.picto-horizontal }}%;
    }
  }
+
+ #section-{{ section.id }} .slider__background{
+    background-image: url("{{ section.settings.image | img_url:'master'}}");
+  }
+
 </style>
 <section  id="section-{{ section.id }}" class="section mobile-portfolio" data-section-id="{{ section.id }}" data-section-type="mobile-portfolio">
    <div class="container--large container--bordered">
       <div class="grid grid--center grid--middle grid--flush">
-         <div class="7/12--lap-and-up grid__cell relative">
+         <div class="4/12--lap-and-up grid__cell relative">
             <div class="mobile-portfolio__content relative" data-aos="fade-right">
-              {% if section.settings.image != blank %}
+              <!-- {% if section.settings.image != blank %}
                 <img class="full-width mobile-portfolio-image" src="{{ section.settings.image | img_url:'master' }}" alt="{{ section.settings.image.alt }}">
-              {% endif %}
-              <h2 class="h1">{{ section.settings.design-title}}</h2>
+              {% endif %} -->
+              <h2 class="h1">{{ section.settings.design-title}} <span class="title__line"></span></h2>
               <div class="mobile-portfolio__text">{{ section.settings.design-text }}</div>
               {% if section.settings.design-picto != blank %}
                 <div class="mobile-portfolio-picto">
@@ -23,7 +28,7 @@
               {% endif %}
             </div>
          </div>
-         <div class="5/12--lap-and-up grid__cell">
+         <div class="7/12--lap-and-up grid__cell slider__background">
            <div class="mobile__slider" data-aos="fade-left">
               <div class="mobile-portfolio__carousel">
                  <div class="carousel" data-flickity='{ "prevNextButtons": false }'>
@@ -46,7 +51,7 @@
              {
                "type": "image_picker",
                "id": "image",
-               "label": "Image"
+               "label": "Background image"
              },
              {
                "type": "text",

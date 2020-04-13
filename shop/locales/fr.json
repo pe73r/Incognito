@@ -221,13 +221,17 @@
   },
   "contact": {
     "form": {
-      "name": "Nom",
+      "name": "Prenom",
       "email": "E-mail",
       "phone": "Numéro de téléphone",
       "message": "Message",
       "submit": "Envoyer",
       "post_success": "Merci pour votre message. Nous vous répondrons dès que possible.",
-      "error_heading": "Merci de bien vouloir ajuster les éléments suivants :"
+      "error_heading": "Merci de bien vouloir ajuster les éléments suivants :",
+      "lastname": "Nom",
+      "company": "Societé",
+      "function": "Function",
+      "send": "Envoyer"  
     }
   },
   "customer": {

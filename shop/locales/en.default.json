@@ -227,7 +227,11 @@
       "message": "Message",
       "submit": "Send",
       "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-      "error_heading": "Please adjust the following:"
+      "error_heading": "Please adjust the following:",
+      "lastname": "Last name",
+      "company": "company",
+      "function": "function",
+      "send": "Send" 
     }
   },
   "customer": {
