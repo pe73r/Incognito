@@ -231,7 +231,9 @@
       "lastname": "Last name",
       "company": "company",
       "function": "function",
-      "send": "Send" 
+      "send": "Send",
+      "shop": "Shop shopify"
+
     }
   },
   "customer": {

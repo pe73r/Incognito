@@ -7562,6 +7562,46 @@ function onYouTubeIframeAPIReady() {
 
 $(theme.init);
 
+///// CONTACT FORM recuperer les valeurs des skills ////
+
+$("[data-contact-project]").on("click", function(){
+  var projectArray = "";
+   $("[data-contact-project]").each(function(){ 
+     if (this.checked){
+        projectArray =  projectArray + $(this).val() + ", "
+     }
+   });
+   projectArray = projectArray.substring(0, projectArray.length - 2);
+   $("[data-contact-skills]").val(projectArray)
+});
+
+
+///// CONTACT FORM pop-up when no checkbox is checked ////
+
+ $(document).ready(function(){
+     $(".form").submit(function(){
+        if ($("[data-contact-project]").filter(':checked').length < 1){
+            $( ".input-error" ).addClass( "input-error" );
+
+          Swal.fire({
+                 title: 'Wait!!',
+                 text: 'Choose at least one option!',
+                 width: 300,
+                   padding: '1em',
+                   background: '#fff',
+                   backdrop: `
+                     rgba(0,0,123,0.4)
+                     rgb(253, 213, 123, 0.2)
+                   `
+                 })
+
+        return false;
+    }
+       });
+ });
+
+
+
 
 
 ///////// MAGIC SCROLL ////////////////

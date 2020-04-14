@@ -9438,7 +9438,6 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 //////////* contact FORM *////////
 
  $yellow-zerance: black;
- $green-shopify: green;
 
 .section--form{
   padding-top: 10px;
@@ -9449,12 +9448,11 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 
     .input:focus {
      outline: none !important;
-     border:1px solid red;
-     box-shadow: 0 0 10px #719ECE;
+     box-shadow: 0 0 10px pink;
   }
 
   .button-custom:hover{
-    font-weight: bold; 
+    font-weight: bold;
   }
 }
 
@@ -9464,25 +9462,46 @@ html body [data-ca3_iconfont="ETmodules"]::before {
    padding-left: 30px;
 }
 
+.contact-title__line{
+  width: 300px;
+  height: 1px;
+  background-color: $color-text;
+  margin-left: 10px;
+  display: inline-block;
+}
+
 .contact-form__cells{
   width: 90%;
   margin: auto;
   padding-bottom: 40px;
+   input{
+     width: 85%;
+     border: none;
+     border-bottom: 1px solid $color-text;
+     padding: 17px 0;
+   }
 }
 
-.contact__field{
-  input{
-    width: 85%;
-    border: none;
-    border-bottom: 1px solid $color-text;
-    padding: 15px 0;
+.ContactProject{
+  input[type=checkbox]{
+    margin-right: 5px;
+    border: 3px solid black;
   }
+}
+
+.ContactTitle{
+  font-size: 22px;
+}
+
+.ContactProject{
+  margin-top: 20px;
 }
 
 .skill-item{
    margin-bottom: 15px;
-   margin-left: 10px;
+   position: relative;
 }
+
 .skill-box{
   position: relative;
   padding-bottom: 30px;
@@ -9492,6 +9511,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
      opacity: .5;
      font-size: 16px;
      cursor: pointer;
+     margin: 0;
    }
 
   svg{
@@ -9512,22 +9532,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 }
 
 .skill-box input[type="checkbox"] {
-    display: none;
-}
-
-
-@media #{$pocket}{
-  .section--form{
-     .contact-form__cells{
-        padding: 0;
-     }
-     .deadline-list-item{
-       margin-bottom: 20px;
-     }
-     .form__subtitle {
-       margin: 30px 0 25px 0;
-     }
-  }
+    // display: none;
 }
 
 
@@ -9543,12 +9548,19 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 }
 
 .form-success{
-    background-color: $green-shopify;
-    padding: 10px;
+  background-color: #C6E5D7;
+  padding: 15px;
+  width: 50%;
+  margin: auto;
 }
 
+// sweet alert background color boton ///
 .swal2-styled.swal2-confirm {
-    // background-color: $yellow-zerance !important;
+    background-color: #FDDB58 !important;
+    border-radius: 0 !important;
+}
+.swal2-popup{
+  border-radius: 0 !important;
 }
 
 .ImageContactForm{
@@ -9558,4 +9570,110 @@ html body [data-ca3_iconfont="ETmodules"]::before {
   max-width: 700px;
   opacity: .3;
   z-index: -1;
+}
+
+@media #{$pocket}{
+
+  .section--form{
+    width: 100%;
+     .contact-form__cells{
+        padding: 0;
+     }
+  }
+
+  .skill-box{
+    padding-bottom: 10px;
+  }
+
+  .ContactMegaTitle{
+     font-size: 40px;
+  }
+
+  .contact-title__line{
+    display: none;
+  }
+
+  .ContactTitle{
+    font-size: 26px;
+  }
+
+  .contact__field{
+    input{
+      width: 95%;
+      margin-bottom: 20px;
+    }
+  }
+  .form-success{
+    width: 90%;
+  }
+}
+
+
+/* Checkbox styles */
+
+.ContactProject {
+
+  .skill-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+      input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+  height: 15px;
+  width: 15px;
+  background-color: white;
+  margin-right: 10px;
+  position: relative;
+}
+
+/* On mouse-over, add a grey background color */
+&:hover input ~ .checkmark {
+  background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+ input:checked ~ label {
+   opacity: 1;
+   border-bottom: 1px solid $yellow-zerance;
+}
+
+input:checked ~ .checkmark {
+ background-color: pink;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+ input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+ .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 }

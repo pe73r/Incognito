@@ -3,7 +3,7 @@
 	<div class="section--form">
 	<div class="container--form contact mega-section__contact align-center">
 		{% unless section.settings.title == blank %}
-			<h2 class="ContactMegaTitle">{{ section.settings.title }}<span class="title__line"></span></h1>
+			<h2 class="ContactMegaTitle">{{ section.settings.title }}<span class="contact-title__line"></span></h1>
 		{% endunless %}
 		{% form 'contact' , class:'form' %}
 			{% if form.posted_successfully? %}
@@ -43,10 +43,10 @@
 				<div class="1/2--handheld-and-up grid__cell contact__field">
 					<!-- <label class="contact__label" for="ContactFormFunction">{{ 'contact.form.function' | t }}</label> -->
 					<input class="input input--full" type="text"
-					  name="contact[function]"
+					  name="contact[shop]"
 						id="ContactFormFunction"
-						placeholder="{{ 'contact.form.function' | t }}"
-						value="{% if form.function %}{{ form.function }}{% elsif customer %}{{ customer.function }}{% endif %}">
+						placeholder="{{ 'contact.form.shop' | t }}"
+						value="{% if form.shop %}{{ form.shop }}{% elsif customer %}{{ customer.shop }}{% endif %}">
 				</div>
 				<div class="1/2--handheld-and-up grid__cell contact__field">
 					<!-- <label class="contact__label" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label> -->
@@ -71,19 +71,21 @@
       </div>
 		</div>
 		<!-- Type of project -->
+    <div class="ContactProject">
+      	 <h2 class="h2">À propos de votre projet</h2>
 		<div class="grid">
-			<h2 class="h2">À propos de votre projecczxcat</h2>
 				<div class="1/3--handheld-and-up grid__cell contact__field">
 						<div class="skill-box block__bordered">
-              <h3 class="h4">Création Boutique</h3>
-		            <div class="skill-item" >
-									 <input id="theme-mesure" data-contact-project type="checkbox" name="project-skills[]" value="Theme sur mesure" data-parsley-mincheck="1">
-									 <label class="form-checkbox form--label" for="theme-mesure" >
+              <h3 class="ContactTitle">Création Boutique</h3>
+		            <div class="skill-item">
+									 <input id="theme-mesure" class="checkbox" data-contact-project type="checkbox" name="project-skills[]" value="Theme sur mesure" data-parsley-mincheck="1">
+                   <span class="checkmark"></span>
+                   <label class="form-checkbox form--label" for="theme-mesure" >
 										  <!-- {%- include 'icon-form-theme3' class:'form--svg' -%} -->
 									   <span>Thème sur-mesure</span>
 								   </label>
 		            </div>
-                <div id="dropdown-1" class="skill-dropdown" style="display:none;">
+                <!-- <div id="dropdown-1" class="skill-dropdown" style="display:none;">
       		           <div class="skill-item">
       			           <input  id="mesure-maquettes" data-contact-project type="checkbox" name="project-skills[]" value="sur-mesure-maquettes" data-parsley-mincheck="1" >
       									 <label class="form-checkbox skill_planning-strategique-ux-design" for="mesure-maquettes">
@@ -114,11 +116,13 @@
       				      	    <span>Optimisation</span>
       				          </label>
       							 </div>
-               </div>
+               </div> -->
                <div class="skill-item">
-                 <input id="theme-existant" data-contact-project  type="checkbox" name="project-skills[]" value="Theme existant" data-parsley-mincheck="1">
+                 <input id="theme-existant" class="checkbox" data-contact-project  type="checkbox" name="project-skills[]" value="Theme existant" data-parsley-mincheck="1">
+                 <span class="checkmark"></span>
                   <label class="form-checkbox skill_conception-creation" for="theme-existant">
                     <!-- {%- include 'icon-form-theme1' class:'form--svg' -%} -->
+
                     <span>Thème existant</span>
                   </label>
                </div>
@@ -126,17 +130,19 @@
 				</div>
 				<div class="1/3--handheld-and-up grid__cell contact__field">
 						<div class="skill-box block__bordered">
-              <h3 class="h4">Maintenance</h3>
+              <h3 class="ContactTitle">Maintenance</h3>
 		            <div class="skill-item">
-			           <input  id="besoins-ponctuels" data-contact-project type="checkbox" name="project-skills[]" value="besoins-ponctuels" data-parsley-mincheck="1">
-									 <label class="form-checkbox skill_planning-strategique-ux-design" for="besoins-ponctuels">
+			           <input  id="besoins-ponctuels" class="checkbox" data-contact-project type="checkbox" name="project-skills[]" value="besoins-ponctuels" data-parsley-mincheck="1">
+                   <span class="checkmark"></span>
+                   <label class="form-checkbox skill_planning-strategique-ux-design" for="besoins-ponctuels">
                     <!-- {%- include 'icon-form-question-2' class:'form--svg' -%} -->
 										<span>Besoins ponctuels</span>
 				          </label>
 						   </div>
 						   <div class="skill-item">
-				         <input id="besoins-long-terme" data-contact-project  type="checkbox" name="project-skills[]" value="besoins-long-terme" data-parsley-mincheck="1">
-									<label class="form-checkbox skill_conception-creation" for="besoins-long-terme">
+				         <input id="besoins-long-terme" class="checkbox" data-contact-project  type="checkbox" name="project-skills[]" value="besoins-long-terme" data-parsley-mincheck="1">
+                  <span class="checkmark"></span>
+                  <label class="form-checkbox skill_conception-creation" for="besoins-long-terme">
 										<!-- {%- include 'icon-form-appointment' class:'form--svg' -%} -->
 				      	    <span>Besoins à long terme</span>
 				          </label>
@@ -145,17 +151,19 @@
 				</div>
 				<div class="1/3--handheld-and-up grid__cell contact__field">
 						<div class="skill-box">
-              <h3 class="h4">Applications</h3>
+              <h3 class="ContactTitle">Applications</h3>
 								<div class="skill-item">
-									 <input id="community" data-contact-project type="checkbox" name="project-skills[]" value="Référencement" data-parsley-mincheck="1">
-									 <label class="form-checkbox form--label" for="community">
+									 <input id="community" class="checkbox" data-contact-project type="checkbox" name="project-skills[]" value="Référencement" data-parsley-mincheck="1">
+                   <span class="checkmark"></span>
+                   <label class="form-checkbox form--label" for="community">
 											<!-- {%- include 'icon-form-ordi' class:'form--svg' -%} -->
 										 <span>Connecteurs/Intégrations</span>
 									 </label>
 								</div>
 								<div class="skill-item">
-								 <input  id="referencement" data-contact-project type="checkbox" name="project-skills[]" value="Email marketing" data-parsley-mincheck="1">
-									 <label class="form-checkbox skill_planning-strategique-ux-design" for="referencement">
+								 <input  id="referencement" class="checkbox" data-contact-project type="checkbox" name="project-skills[]" value="Email marketing" data-parsley-mincheck="1">
+                   <span class="checkmark"></span>
+                   <label class="form-checkbox skill_planning-strategique-ux-design" for="referencement">
 										 <!-- {%- include 'icon-form-mesure' class:'form--svg' -%} -->
 										<span>Fonctionnalités sur-mesure</span>
 									</label>
@@ -164,6 +172,7 @@
 				</div>
 				<input data-contact-skills type="hidden" name="contact[skills]" value="">
 		</div>
+    </div>
 		<!-- Text area -->
     <div class="form__text-area">
 			 <!-- <h2 class="h2">Décrivez votre projet en quelques lignes</h2> -->

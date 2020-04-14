@@ -231,7 +231,8 @@
       "lastname": "Apellidos",
       "company": "Empresa",
       "function": "Función",
-      "send": "Enviar" 
+      "send": "Enviar",
+      "shop": "Tienda shopify" 
     }
   },
   "customer": {
