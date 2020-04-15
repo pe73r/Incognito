@@ -8963,6 +8963,7 @@ main {
 .absolute {position: absolute;}
 .flex {display: flex;}
 .pocket-only {display: none;}
+.mobile-only {display: none;}
 .align-center {text-align: center;}
 .align-left {text-align: left;}
 .align-right {text-align: right;}
@@ -9028,6 +9029,11 @@ main {
 
 
 /*================ SECTIONS ================*/
+
+.section--medium{
+
+  margin: 60px 0;
+}
 
 /*================ Header ================*/
 .site-header__logo-link{
@@ -9437,7 +9443,6 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 
 //////////* contact FORM *////////
 
- $yellow-zerance: black;
 
 .section--form{
   padding-top: 10px;
@@ -9523,12 +9528,12 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 
   input[type=checkbox]:checked + label {
     opacity: 1;
-    border-bottom: 1px solid $yellow-zerance;
+    border-bottom: 1px solid black;
   }
 
 }
 .input-error{
-  border-bottom: 3px solid red;
+  border-bottom: 1px solid red;
 }
 
 .skill-box input[type="checkbox"] {
@@ -9644,11 +9649,11 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 /* When the checkbox is checked, add a blue background */
  input:checked ~ label {
    opacity: 1;
-   border-bottom: 1px solid $yellow-zerance;
+   border-bottom: 1px solid black;
 }
 
 input:checked ~ .checkmark {
- background-color: pink;
+ background-color: #FDDB58;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -9676,4 +9681,140 @@ input:checked ~ .checkmark {
   transform: rotate(45deg);
 }
 
+}
+
+//////////* Homepage Slider *////////
+
+.HomepageSlider{
+
+  .carousel-cell {
+     width: 80%; /* full width */
+     /* height of carousel */
+     margin-right: 80px;
+    }
+
+  .flickity-page-dots {
+    bottom: 40px;
+   }
+
+  .flickity-viewport{
+    overflow: visible;
+  }
+
+  .flickity-button-icon{
+    display: none;
+  }
+
+  .flickity-prev-next-button.next {
+    right: 100px;
+     &:before{
+       content: "\219D";
+       font-size: 50px;
+       position: absolute;
+       top:-18px;
+       right: 5px;
+     }
+  }
+
+  .flickity-prev-next-button.previous{
+    left: 100px;
+      &:before{
+        content: "\219C";
+        font-size: 50px;
+        position: absolute;
+        top:-18px;
+        right: 5px;
+      }
+  }
+
+}
+
+.SliderPadding{
+  padding: 100px 0;    
+}
+
+.SliderImage{
+  width: 70%;
+  box-shadow: -12px 12px white;
+   img{
+     padding-left: 5px;
+   }
+}
+
+.SliderBackground{
+  background-color: transparent;
+
+}
+
+.SliderContent{
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  max-width: 300px;
+  padding: 30px;
+  min-height: 300px;
+    h2{
+      font-family: "Roboto",sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      margin: 0;
+      letter-spacing: 0.2px;
+    }
+    p{
+      margin: 30px auto;
+    }
+}
+
+.BoxProjectType{
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  max-width: fit-content;
+  border: 1px solid $color-text;
+  padding: 18px;
+  h2{
+    font-family: "Roboto",sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    letter-spacing: 0.2px;
+  }
+
+  p{
+    font-size: 14px;
+  }
+}
+
+@media #{$pocket}{
+  .SliderContent{
+    position: relative;
+  }
+}
+
+.invert{
+  float: right;
+}
+
+.ContentInvert{
+  left: 50px;
+}
+
+.BoxProjectTypeInvert{
+  position: absolute;
+  top: -30px;
+  right: 50px;
+  max-width: fit-content;
+  border: 1px solid $color-text;
+  padding: 18px;
+  h2{
+    font-family: "Roboto",sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    letter-spacing: 0.2px;
+  }
+
+  p{
+    font-size: 14px;
+  }
 }

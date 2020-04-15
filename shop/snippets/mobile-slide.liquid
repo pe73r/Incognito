@@ -1,0 +1,29 @@
+<style>
+
+ .slider__background{
+    background-image: url("{{ section.settings.image | img_url:'master'}}");
+  }
+
+</style>
+<div class="grid grid--center grid--middle grid--flush">
+   <div class="4/12--lap-and-up grid__cell relative">
+       <div class="mobile-portfolio__content relative" data-aos="fade-right">
+          <h2 class="h1">{{ block.settings.design-title}} <span class="title__line"></span></h2>
+          <div class="mobile-portfolio__text">{{ block.settings.content }}</div>
+       </div>
+    </div>
+    <div class="7/12--lap-and-up grid__cell slider__background">
+      <div class="mobile__slider" data-aos="fade-left">
+          <div class="mobile-portfolio__carousel">
+            <div class="carousel" data-flickity='{ "prevNextButtons": false }'>
+                <div class="carousel-cell">
+                  <img class="full-width" src="{{ block.settings.slide | img_url:'master' }}" alt="{{ section.settings.slide-1.alt }}">
+                </div>
+                <div class="carousel-cell">
+                  <img class="full-width" src="{{ block.settings.slide-2 | img_url:'master' }}" alt="{{ section.settings.slide-2.alt }}">
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>

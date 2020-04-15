@@ -7566,7 +7566,7 @@ $(theme.init);
 
 $("[data-contact-project]").on("click", function(){
   var projectArray = "";
-   $("[data-contact-project]").each(function(){ 
+   $("[data-contact-project]").each(function(){
      if (this.checked){
         projectArray =  projectArray + $(this).val() + ", "
      }
@@ -7581,19 +7581,7 @@ $("[data-contact-project]").on("click", function(){
  $(document).ready(function(){
      $(".form").submit(function(){
         if ($("[data-contact-project]").filter(':checked').length < 1){
-            $( ".input-error" ).addClass( "input-error" );
-
-          Swal.fire({
-                 title: 'Wait!!',
-                 text: 'Choose at least one option!',
-                 width: 300,
-                   padding: '1em',
-                   background: '#fff',
-                   backdrop: `
-                     rgba(0,0,123,0.4)
-                     rgb(253, 213, 123, 0.2)
-                   `
-                 })
+            $( ".input-error-alert" ).addClass( "input-error" );
 
         return false;
     }
@@ -7682,22 +7670,8 @@ $(document).ready(function(){
   }) // this requires a plugin
   .addTo(controller);
 
-  // Scene arrow
-  var ourScene = new ScrollMagic.Scene({
-    triggerElement: '#banner-text',
-    duration: "100%",
-    triggerHook: 0,
-    reverse: false
-  })
-  .setClassToggle('#intro-arrow', 'hide')
-  .addIndicators({
-    name: 'arrow',
-    colorTrigger: 'yellow',
-    colorStart: 'yellow',
-    indent: 300,
-    colorEnd: 'yellow'
-  }) // this requires a plugin
-  .addTo(controller);
 
 
  });
+
+// horizontal ///
