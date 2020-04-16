@@ -1443,7 +1443,7 @@ blockquote {
     font-weight: $font-weight-body;
 
     &::before {
-      content: '\2014 \0020';
+      // content: '\2014 \0020';
     }
   }
 }
@@ -7705,7 +7705,7 @@ $toolbar-height-small: 46px;
   }
 
   p {
-    margin-bottom: $grid-gutter;
+    margin-bottom: 10px;
 
     + cite {
       margin-top: 0;
@@ -9238,11 +9238,15 @@ nav{
 
 /*================ Text centered ================*/
 
-
-.body-color-change{
-  background-color:  #fbe4fd;
-
-}
+{% if template == 'page' %}
+  .body-color-change{
+    background-color:  #fbe4fd;
+  }
+{% else %}
+    .body-color-change{
+      background-color: #FDF5E6	;
+    }
+{% endif %}
 
 .TextCenteredTitle{
   color: $color-text;
@@ -9252,6 +9256,8 @@ nav{
   margin: auto;
 
 }
+
+
 
 
 .myriad:before{
@@ -9273,6 +9279,10 @@ nav{
      width: 30px;
      height: 30px;
    }
+}
+
+.TextCenteredButton{
+  margin-top: 40px;
 }
 
 /*================ Propositions ================*/
@@ -9495,13 +9505,13 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 //////////* contact FORM *////////
 
 .ContactPadding{
-  padding-top: 50px;
+  padding-top: 30px;
 }
 .section--form{
   padding-top: 10px;
   padding-bottom: 60px;
   z-index: 2;
-  width: 90%;
+  width: 80%;
   margin: auto;
 
     .input:focus {
@@ -9541,18 +9551,18 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 }
 
 .ContactProject{
+  margin: 20px 0;
   input[type=checkbox]{
     margin-right: 5px;
     border: 3px solid black;
+  }
+  h2{
+    margin-bottom: 30px;
   }
 }
 
 .ContactTitle{
   font-size: 22px;
-}
-
-.ContactProject{
-  margin-top: 20px;
 }
 
 .skill-item{
@@ -9566,7 +9576,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
   cursor: pointer;
 
    label{
-     opacity: .5;
+     // opacity: .5;
      font-size: 16px;
      cursor: pointer;
      margin: 0;
@@ -9599,7 +9609,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
   margin: 0 auto;
    textarea{
       width: 100%;
-      margin: 30px 0;
+      margin: 10px 0;
       border: 1px solid black;
       background-color: white;
   }
@@ -9741,7 +9751,7 @@ input:checked ~ .checkmark {
 .HomepageSlider{
 
   .carousel-cell {
-     width: 80%; /* full width */
+     width: 100%; /* full width */
      /* height of carousel */
      margin-right: 80px;
     }
@@ -9780,6 +9790,11 @@ input:checked ~ .checkmark {
       }
   }
 
+}
+
+.SliderDesktop{
+  width: 80%;
+  margin: 0 auto;
 }
 
 .SliderPadding{
@@ -9901,8 +9916,7 @@ input:checked ~ .checkmark {
 
 //////////* section image block *////////
 
-.ImageBlock{
-  background-color: white;
+.b-bottom{
   border-bottom: 1px solid $color-text;
 }
 
@@ -9913,3 +9927,31 @@ input:checked ~ .checkmark {
 .ImageBlock__content{
   padding: 30px;
 }
+
+//////////* section quotes *////////
+
+.quotes-container{
+  width: 80%;
+  margin: auto;
+}
+.quotes--image{
+  max-width: 160px;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.quotes-title{
+  max-width: 300px;
+  margin: auto;
+}
+
+//////////* section quotes *////////
+
+// footer {
+// 	width: 100%;
+// 	height: 300px;
+// 	position: fixed;
+// 	bottom: 0;
+// 	z-index: -1;
+// 	background-color: #DD5632;
+// }

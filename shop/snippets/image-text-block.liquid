@@ -1,6 +1,13 @@
-<section  id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="image-text-block">
+<style >
+  {% for block in section.blocks %}
+   #block-{{ block.id }} .outline{
+       color:{{ block.settings.color }} !important;
+    }
+  {% endfor %}
+</style>
+<section  id="block-{{ block.id }}">
    <div class="container--large container--bordered">
-     <div class="ImageBlock">
+     <div class="ImageBlock {% unless last_block %} b-bottom {% endunless %}">  
        <div class="grid grid--flush {% if block.settings.reverse %} grid--rev {% endif %}">
           <div class="6/12--lap-and-up grid__cell">
             {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -18,7 +25,12 @@
           </div>
           <div class="6/12--lap-and-up grid__cell">
              <div class="ImageBlock__content">
-               <h2 class="h1 Heading">{{ block.settings.title}}</h2>
+               <div class="slide__counter">
+                 {% assign number = number | plus:1 %}
+                 <span>{{ number }}</span>
+                 <p class="number__line"></p>
+               </div>
+               <h2 class="h1 Heading ImageBlock__title">{{ block.settings.title}}</h2>
                <div class="">
                   {{ block.settings.list }}
                </div>

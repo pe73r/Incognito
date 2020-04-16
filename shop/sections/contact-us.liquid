@@ -3,7 +3,7 @@
 	<div class="section--form">
 	<div class="container--form contact mega-section__contact align-center">
 		{% unless section.settings.title == blank %}
-			<h2 class="ContactMegaTitle">{{ section.settings.title }}<span class="contact-title__line"></span></h1>
+			<h2 class="ContactMegaTitle Heading outline">{{ section.settings.title }}<span class="contact-title__line"></span></h1>
 		{% endunless %}
 		{% form 'contact' , class:'form' %}
 			{% if form.posted_successfully? %}
@@ -72,7 +72,7 @@
 		</div>
 		<!-- Type of project -->
     <div class="ContactProject">
-      	 <h2 class="h2">À propos de votre projet</h2>
+      	 <h2 class="h2 Heading">À propos de votre projet</h2>
 		<div class="grid">
 				<div class="1/3--handheld-and-up grid__cell contact__field">
 						<div class="skill-box block__bordered">
@@ -175,6 +175,7 @@
     </div>
 		<!-- Text area -->
     <div class="form__text-area">
+			<h2 class="h2 Heading">Decrivez votre problem</h2>
 			 <!-- <h2 class="h2">Décrivez votre projet en quelques lignes</h2> -->
 	     	 <div class="contact__field">
 						<!-- <label class="contact__label" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label> -->

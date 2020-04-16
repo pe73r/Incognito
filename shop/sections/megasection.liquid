@@ -1,5 +1,9 @@
+{% assign number = 0 %}
 {% for block in section.blocks %}
   {% if block.type == 'image-text-block' %}
+    {% if forloop.last == true %}
+        {% assign last_block = block %}
+    {% endif %}
 	  {% include 'image-text-block' %}
 	{% elsif block.type == 'carousel' %}
 	  {% include 'carousel' %}
@@ -32,6 +36,12 @@
              "id": "title",
              "label": "Title",
              "default": "Title"
+           },
+           {
+             "type": "color",
+             "id": "color",
+             "label": "Outline text color",
+             "default": "transparent"
            },
            {
              "type": "textarea",
