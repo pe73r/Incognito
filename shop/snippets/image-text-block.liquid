@@ -1,0 +1,30 @@
+<section  id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="image-text-block">
+   <div class="container--large container--bordered">
+     <div class="ImageBlock">
+       <div class="grid grid--flush {% if block.settings.reverse %} grid--rev {% endif %}">
+          <div class="6/12--lap-and-up grid__cell">
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+             <div class="ImageBlock__image relative f-0 {% if block.settings.reverse %} border-left {% else %} border-right {% endif %}">
+               <img id="{{ img_id }}"
+                    class="full-width lazyload"
+                    src="{{ block.settings.image | img_url: '300x300' }}"
+                    data-src="{{ img_url }}"
+                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                    data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                    data-sizes="auto"
+                    alt="{{ block.settings.image.alt | escape }}">
+
+             </div>
+          </div>
+          <div class="6/12--lap-and-up grid__cell">
+             <div class="ImageBlock__content">
+               <h2 class="h1 Heading">{{ block.settings.title}}</h2>
+               <div class="">
+                  {{ block.settings.list }}
+               </div>
+             </div>
+          </div>
+       </div>
+     </div>
+   </div>
+</section>

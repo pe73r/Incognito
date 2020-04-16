@@ -1,0 +1,58 @@
+{% for block in section.blocks %}
+  {% if block.type == 'image-text-block' %}
+	  {% include 'image-text-block' %}
+	{% elsif block.type == 'carousel' %}
+	  {% include 'carousel' %}
+  {% elsif block.type == 'image-full' %}
+  	  {% include 'image-full' %}
+  {% elsif block.type == 'mobile-slider' %}
+  	  {% include 'mobile-slider' %}
+	{% endif %}
+
+{% endfor %}
+{% schema %}
+{
+  "name": "Megasection",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "image-text-block",
+      "name": "Image text block",
+      "settings": [
+           {
+             "type": "checkbox",
+             "id": "reverse",
+             "label": "Block reverse ?",
+             "default": false
+           },
+           {
+             "type": "textarea",
+             "id": "title",
+             "label": "Title",
+             "default": "Title"
+           },
+           {
+             "type": "textarea",
+             "id": "list",
+             "label": "List",
+             "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+           },
+           {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+           }
+      ]
+    },
+    {
+      "type": "slider",
+      "name": "carousel",
+      "settings": [
+
+      ]
+    }
+  ]
+}
+{% endschema %}

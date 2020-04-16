@@ -1,5 +1,5 @@
-<section id="section-{{ section.id }}" class="section" data-section-id="{{ section.id }}" data-section-type="contact">
-	<div class="container--large container--bordered relative">
+<section id="section-{{ section.id }}" class="section " data-section-id="{{ section.id }}" data-section-type="contact">
+	<div class="container--large container--bordered relative {% if template == "page.contact" %} ContactPadding {% endif %}">
 	<div class="section--form">
 	<div class="container--form contact mega-section__contact align-center">
 		{% unless section.settings.title == blank %}
@@ -201,7 +201,7 @@
 </section>
 {% schema %}
 {
-  "name": "Contact Form zerance",
+  "name": "Contact Form",
   "settings": [
       {
         "type": "text",

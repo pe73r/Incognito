@@ -515,6 +515,7 @@ $color-slideshow-dots: #fff;
 
 /*================ Typography ================*/
 
+// myriad ///
 
 @font-face {
  font-family: "Myriad_Pro_Bold_Italic";
@@ -536,6 +537,22 @@ $color-slideshow-dots: #fff;
  .myriad{
 		@include myriad;
  }
+
+// GRAPHIC BOLD ///
+
+ @font-face {
+  font-family: "Graphik-Bold";
+  src: url(" https://cdn.shopify.com/s/files/1/0264/7818/2457/files/Graphik-Bold.ttf?v=1587042786") format("ttf");
+ }
+
+ @mixin graphik {
+    font-family: "Graphik-Bold", sans-serif;
+ 	}
+
+  .graphik{
+ 		@include graphik;
+  }
+
 
 {% assign header_font = settings.type_header_font %}
 {% assign base_font = settings.type_base_font %}
@@ -1385,7 +1402,7 @@ body{
 
 .main-content {
   display: block;
-  padding-top: $section-spacing-small;
+  // padding-top: $section-spacing-small;
 
   @include media-query($medium-up) {
     padding-top: $section-spacing;
@@ -4091,7 +4108,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 @include media-query($small) {
   .template-product .main-content {
-    padding-top: $grid-gutter-mobile;
+    // padding-top: $grid-gutter-mobile;
   }
   .product-single__media-group {
     position: relative;
@@ -8968,6 +8985,7 @@ main {
 .align-left {text-align: left;}
 .align-right {text-align: right;}
 .full-width { width:100%;}
+.f-0{ font-size: 0 }
 .image-container {
   width:100%;
   img { width:100%; }
@@ -8984,6 +9002,14 @@ main {
 .mb-10 { margin-bottom:0.71rem !important;}
 .mb-20 { margin-bottom:1.42rem !important;}
 .mb-30 { margin-bottom:2.14rem !important;}
+
+.border-right{
+  border-right: 1px solid $color-text;
+}
+
+.border-left{
+  border-left: 1px solid $color-text;
+}
 
 
 @media #{$pocket} {
@@ -9028,10 +9054,35 @@ main {
 }
 
 
+/*================ HEADINGS ================*/
+
+.Heading {
+    @include graphik;
+    font-weight: 700;
+}
+
+.outline {
+    color: white;
+    text-shadow:
+	   -1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		 1px 1px 0 #000
+}
+
+@supports((text-stroke: 1px black) or (-webkit-text-stroke: 1px black)) {
+    .outline {
+        color: transparent;
+        -webkit-text-stroke: 1px black;
+		    text-stroke: 1px black;
+        text-shadow: none;
+    }
+}
+
+
 /*================ SECTIONS ================*/
 
 .section--medium{
-
   margin: 60px 0;
 }
 
@@ -9227,7 +9278,7 @@ nav{
 /*================ Propositions ================*/
 
 .PropositionsContent{
-  padding: 50px;
+  padding: 25px;
   min-height: 550px;
   display: flex;
   justify-content: space-between;
@@ -9443,7 +9494,9 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 
 //////////* contact FORM *////////
 
-
+.ContactPadding{
+  padding-top: 50px;
+}
 .section--form{
   padding-top: 10px;
   padding-bottom: 60px;
@@ -9653,7 +9706,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 }
 
 input:checked ~ .checkmark {
- background-color: #FDDB58;
+ background-color: #67FFBA; // checkbox color vert //
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -9709,9 +9762,9 @@ input:checked ~ .checkmark {
     right: 100px;
      &:before{
        content: "\219D";
-       font-size: 50px;
+       font-size: 45px;
        position: absolute;
-       top:-18px;
+       top:-15px;
        right: 5px;
      }
   }
@@ -9720,9 +9773,9 @@ input:checked ~ .checkmark {
     left: 100px;
       &:before{
         content: "\219C";
-        font-size: 50px;
+        font-size: 45px;
         position: absolute;
-        top:-18px;
+        top:-15px;
         right: 5px;
       }
   }
@@ -9730,7 +9783,7 @@ input:checked ~ .checkmark {
 }
 
 .SliderPadding{
-  padding: 100px 0;    
+  padding: 100px 0;
 }
 
 .SliderImage{
@@ -9785,12 +9838,9 @@ input:checked ~ .checkmark {
   }
 }
 
-@media #{$pocket}{
-  .SliderContent{
-    position: relative;
-  }
-}
 
+
+// slider invert //
 .invert{
   float: right;
 }
@@ -9817,4 +9867,49 @@ input:checked ~ .checkmark {
   p{
     font-size: 14px;
   }
+}
+
+@media #{$pocket}{
+  .SliderContent{
+    position: relative;
+  }
+  .SliderPadding {
+    padding: 50px 0;
+  }
+
+  .SliderMobile{
+     text-align: center;
+     p{
+       margin: 20px 0;
+     }
+
+     h2{
+       margin-top: 15px;
+     }
+  }
+
+ .HomepageSlider{
+    .flickity-prev-next-button.next {
+      right: 10px;
+    }
+
+    .flickity-prev-next-button.previous{
+      left: 10px;
+    }
+  }
+}
+
+//////////* section image block *////////
+
+.ImageBlock{
+  background-color: white;
+  border-bottom: 1px solid $color-text;
+}
+
+.ImageBlock__image{
+
+}
+
+.ImageBlock__content{
+  padding: 30px;
 }
