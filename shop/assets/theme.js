@@ -7606,11 +7606,7 @@ $(document).ready(function(){
     triggerHook: 0
   })
   .setClassToggle('#shoe', 'shoe-position') // add class to project01
-  .addIndicators({
-    name: 'test 1',
-    colorTrigger: 'red',
-    colorStart: 'red'
-  }) // this requires a plugin
+  
   .addTo(controller);
 
 
@@ -7621,12 +7617,7 @@ $(document).ready(function(){
     triggerHook: 0
   })
   .setClassToggle('#mega-title', 'megatitle')
-  .addIndicators({
-    name: 'megatitle',
-    colorTrigger: 'blue',
-    colorStart: 'blue',
-    colorEnd: 'blue'
-  }) // this requires a plugin
+
   .addTo(controller);
 
 
@@ -7637,9 +7628,7 @@ $(document).ready(function(){
     triggerHook: 0
   })
   .setClassToggle('#watch', 'watch')
-  .addIndicators({
-    name: 'watch'
-  }) // this requires a plugin
+
   .addTo(controller);
 
 
@@ -7650,9 +7639,7 @@ $(document).ready(function(){
     triggerHook: 0
   })
   .setClassToggle('#rimmel', 'rimmel')
-  .addIndicators({
-    name: 'watch'
-  }) // this requires a plugin
+
   .addTo(controller);
 
   // Scene Color body
@@ -7662,15 +7649,8 @@ $(document).ready(function(){
     triggerHook: 0
   })
   .setClassToggle('#body', 'body-color-change')
-  .addIndicators({
-    name: 'background-color',
-    colorTrigger: 'yelow',
-    colorStart: 'yellow',
-    colorEnd: 'yellow'
-  }) // this requires a plugin
+
   .addTo(controller);
-
-
 
  });
 

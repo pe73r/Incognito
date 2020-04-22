@@ -4992,8 +4992,10 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .site-header__logo-image {
   display: block;
 
+
   @include media-query($medium-up) {
-    margin: 0 auto;
+    margin-top: 30px;
+    margin-left: 30px;
   }
 }
 
@@ -9103,19 +9105,57 @@ nav{
 /*================ Banner ================*/
 
 #spin:after {
-  content:"brand";
+  content:"brander";
   animation: spin 12s linear infinite;
 }
 
 @keyframes spin {
 
-  20% { content:"design"}
+  20% { content:"designer"}
 
-  40% { content:"develop" }
+  40% { content:"développer" }
 
-  60% { content: "boost" }
+  60% { content: "développer" }
 
-  80% { content: "improve" }
+  80% { content: "faire décoler" }
+}
+
+.BannerIntro{
+   height: 65vh;
+}
+
+.c-banner_text_button {
+    padding: 0 10% 8vh 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.c-banner_text_button > div a {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.b-cta{
+  transform: translate(20px, 0);
+  transition: .6s;
+}
+
+.c-banner_text_button a:hover > .b-cta {
+    transform: translate(32px, 0) !important;
+}
+
+.c-banner_text_button--circle {
+    border: 1px solid grey;
+    border-radius: 1000px;
+    width: 120px;
+    height: 120px;
+    padding: 24.5% 8% 0 0;
+    text-align: right;
+    opacity: .5;
 }
 
 .banner-mega-title{
@@ -9254,10 +9294,7 @@ nav{
   transition: all 3s ease-out;
   max-width: 700px;
   margin: auto;
-
 }
-
-
 
 
 .myriad:before{
@@ -9283,6 +9320,12 @@ nav{
 
 .TextCenteredButton{
   margin-top: 40px;
+}
+
+.TextCenteredBackground{
+   background-size: inherit;
+   background-repeat: no-repeat;
+   background-position: center;
 }
 
 /*================ Propositions ================*/
@@ -9328,9 +9371,10 @@ nav{
 }
 .PropositionsImage{
   width: 100%;
-  max-width: 300px;
+  max-width: 270px;
   margin: auto;
   min-height: 300px;
+  margin-top: 20px;
 }
 
 .PropositionsButton{
@@ -9716,7 +9760,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 }
 
 input:checked ~ .checkmark {
- background-color: #67FFBA; // checkbox color vert //
+ background-color: #94bf46; // checkbox color vert //
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -9822,7 +9866,6 @@ input:checked ~ .checkmark {
   padding: 30px;
   min-height: 300px;
     h2{
-      font-family: "Roboto",sans-serif;
       font-weight: 700;
       font-size: 40px;
       margin: 0;
@@ -9839,6 +9882,7 @@ input:checked ~ .checkmark {
   left: 30px;
   max-width: fit-content;
   border: 1px solid $color-text;
+  background-color: white;
   padding: 18px;
   h2{
     font-family: "Roboto",sans-serif;
@@ -9870,6 +9914,7 @@ input:checked ~ .checkmark {
   right: 50px;
   max-width: fit-content;
   border: 1px solid $color-text;
+  background-color: white;
   padding: 18px;
   h2{
     font-family: "Roboto",sans-serif;
@@ -9933,7 +9978,9 @@ input:checked ~ .checkmark {
 .quotes-container{
   width: 80%;
   margin: auto;
+  padding: 100px 0;
 }
+
 .quotes--image{
   max-width: 160px;
   margin: auto;
@@ -9943,6 +9990,16 @@ input:checked ~ .checkmark {
 .quotes-title{
   max-width: 300px;
   margin: auto;
+}
+
+@media #{$pocket}{
+  .quotes-container{
+    padding: 30px 0;
+  }
+  .quotes-wrapper .slick-dots {
+   margin-top: 10px;
+  }
+
 }
 
 //////////* section quotes *////////
@@ -9955,3 +10012,12 @@ input:checked ~ .checkmark {
 // 	z-index: -1;
 // 	background-color: #DD5632;
 // }
+
+//////////* footer  *////////
+
+.container--footer{
+
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 40px 80px 40px;
+}

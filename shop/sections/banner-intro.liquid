@@ -3,8 +3,8 @@
     color:{{ section.settings.color-spin }};
   }
 </style>
-<section id="section-{{ section.id }}" class="section relative" data-section-id="{{ section.id }}" data-section-type="banner">
-  <div class="container container--bordered">
+<section id="section-{{ section.id }}" class=" section relative" data-section-id="{{ section.id }}" data-section-type="banner">
+  <div class="container container--bordered relative BannerIntro">
     <div class="hero hero--medium">
       <div id="banner-text" class="hero__inner">
         <div class="page-width text-center" data-aos="fade-up" data-aos-easing="ease-in-out">
@@ -13,6 +13,18 @@
           {%- endif -%}
         </div>
      </div>
+    </div>
+    <div class="c-banner_text_button">
+        <div>
+             <a href="#contact-us">
+               <div class="b-cta">
+                 {% include  'icon-arrow-black' %}
+               </div>
+               <div class="c-banner_text_button--circle">
+                 <p style="font-size: 12px;">CONTACTEZ<br> NOUS</p>
+               </div>
+             </a>
+       </div>
     </div>
     <div id="intro-arrow" class="KeepGoing align-center">
       {% if  section.settings.next != blank %}
@@ -23,7 +35,7 @@
          <path class="a2" d="M0 20 L15 30 L30 20"></path>
          <path class="a3" d="M0 40 L10 52 L20 40"></path>
       </svg> -->
-      <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+      <!-- <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a> -->
     </div>
 
     {% if section.settings.image != blank %}
@@ -58,7 +70,8 @@
        "type": "textarea",
        "id": "title",
        "label": "Title",
-       "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+       "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+       "info": "Include <span id='spin'></span> for the spinning text"
      },
      {
        "type": "text",

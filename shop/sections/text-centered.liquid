@@ -1,7 +1,14 @@
+<style>
+  {% if section.settings.background-image %}
+    #section-{{ section.id }} .TextCenteredBackground{
+      background-image: url("{{ section.settings.background-image | img_url:'master' }}");
+     } 
+  {% endif%}
+</style>
 <section id="section-{{ section.id }}" class="relative section-text-centered" data-section-id="{{ section.id }}" data-section-type="text-centered">
-  <div class="container container--bordered">
-    <div class="hero hero--{{ section.settings.hero_size }}">
-      <div id="banner-text" class="hero__inner" data-aos="fade-up" data-aos-duration="4000" data-aos-easing="ease-in-out">
+  <div class="container container--bordered TextCenteredBackground">
+    <div class="hero hero--{{ section.settings.hero_size }} ">
+      <div id="banner-text" class="hero__inner " data-aos="fade-up" data-aos-duration="4000" data-aos-easing="ease-in-out">
         <div class="page-width text-center" >
           {%- if section.settings.text != blank -%}
              <h2 id="mega-title" class="h1 TextCenteredTitle{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.text }}</h2>
@@ -221,6 +228,11 @@
         "type": "url",
         "id": "url",
         "label": "Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "background-image",
+        "label": "Background Image"
       }
   ],
   "presets": [

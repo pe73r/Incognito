@@ -1,13 +1,14 @@
 <section data-section-id="{{ section.id }}" data-section-type="quotes">
   <div class="container--large container--bordered">
-    <div class="hero hero--{{ section.settings.hero_size }} quotes-container">
-    <div class="hero__inner">
-     {% if section.blocks.size > 0 %}
+    <div class="quotes-container">
+   <div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+
+  {% if section.blocks.size > 0 %}
     <div class="quotes-wrapper">
       <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}" data-aos="fade-up" data-aos-duration="4000">
         {% for block in section.blocks %}
-          {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-          <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}  >
+        {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
             <blockquote class="quotes-slider__text text-center">
               {% if block.settings.image != blank %}
               <div class="quotes--image">
@@ -26,13 +27,11 @@
                 <div class="quotes-title h5">{{ block.settings.quote }}</div>
               {% endif %}
               {% if block.settings.author != blank %}
-                <cite>{{ block.settings.author | escape }}</cite>
+                <cite><a href="{{ block.settings.url }}">{{ block.settings.author | escape }}</a></cite>
               {% endif %}
             </blockquote>
           </div>
         {% endfor %}
-         </div>
-        </div>
       </div>
     </div>
   {% endif %}
@@ -40,8 +39,10 @@
   {% if section.blocks.size == 0 %}
     {% include 'no-blocks' %}
   {% endif %}
-  </div>
 </div>
+</div>
+</div>
+</section>
 
 
 
@@ -49,11 +50,11 @@
 {
   "name": {
     "da": "Udtalelser",
-    "de": "Testimonials",
-    "en": "Testimonials",
-    "es": "Testimonios",
+    "de": "Testimonials original",
+    "en": "Testimonials original",
+    "es": "Testimonios original",
     "fi": "Suositukset",
-    "fr": "Témoignages",
+    "fr": "Témoignages original",
     "hi": "प्रमाणपत्र",
     "it": "Testimonial",
     "ja": "お客様の声",
@@ -67,177 +68,11 @@
     "zh-CN": "感言",
     "zh-TW": "推薦文"
   },
+
   "max_blocks": 9,
   "settings": [
-  {
-    "type": "select",
-    "id": "hero_size",
-    "label": {
-      "da": "Højde på afsnit",
-      "de": "Bereichs-Höhe",
-      "en": "Section height",
-      "es": "Altura de la sección",
-      "fi": "Osan korkeus",
-      "fr": "Hauteur de la section",
-      "hi": "सेक्शन की ऊंचाई",
-      "it": "Altezza sezione",
-      "ja": "セクションの高さ",
-      "ko": "섹션 높이",
-      "nb": "Høyde på del",
-      "nl": "Sectiehoogte",
-      "pt-BR": "Altura da seção",
-      "pt-PT": "Altura da secção",
-      "sv": "Sektionshöjd",
-      "th": "ความสูงของส่วน",
-      "zh-CN": "分区高度",
-      "zh-TW": "區塊高度"
-    },
-    "default": "medium",
-    "options": [
-      {
-        "label": {
-          "da": "Tilpas til billede",
-          "de": "An Bild anpassen",
-          "en": "Adapt to image",
-          "es": "Adaptar a la imagen",
-          "fi": "Sovita kuvaan",
-          "fr": "S'adapter à l'image",
-          "hi": "इमेज के अनुकूल बनाएं",
-          "it": "Adatta all'immagine",
-          "ja": "画像に対応",
-          "ko": "이미지에 맞춤",
-          "nb": "Tilpass til bilde",
-          "nl": "Aanpassen aan afbeelding",
-          "pt-BR": "Adaptar à imagem",
-          "pt-PT": "Adaptar à imagem",
-          "sv": "Anpassa till bild",
-          "th": "ปรับตามรูปภาพ",
-          "zh-CN": "适应图片",
-          "zh-TW": "配合圖片"
-        },
-        "value": "adapt"
-      },
-      {
-        "label": {
-          "da": "Ekstra lille",
-          "de": "Extra klein",
-          "en": "Extra Small",
-          "es": "Extra pequeña",
-          "fi": "Erikoispieni",
-          "fr": "Très petite",
-          "hi": "अतिरिक्त छोटा",
-          "it": "Molto piccola",
-          "ja": "極小",
-          "ko": "특소",
-          "nb": "Ekstra liten",
-          "nl": "Extra klein",
-          "pt-BR": "Extra pequeno",
-          "pt-PT": "Extra pequeno",
-          "sv": "Extra liten",
-          "th": "ขนาดเล็กพิเศษ",
-          "zh-CN": "特小",
-          "zh-TW": "超小型"
-        },
-        "value": "x-small"
-      },
-      {
-        "label": {
-          "da": "Lille",
-          "de": "Klein",
-          "en": "Small",
-          "es": "Pequeña",
-          "fi": "Pieni",
-          "fr": "Petite",
-          "hi": "छोटा",
-          "it": "Small",
-          "ja": "小",
-          "ko": "스몰",
-          "nb": "Liten",
-          "nl": "Klein",
-          "pt-BR": "Pequeno",
-          "pt-PT": "Pequeno",
-          "sv": "Liten",
-          "th": "เล็ก",
-          "zh-CN": "小",
-          "zh-TW": "小型"
-        },
-        "value": "small"
-      },
-      {
-        "label": {
-          "da": "Medium",
-          "de": "Mitte",
-          "en": "Medium",
-          "es": "Mediana",
-          "fi": "Keskisuuri",
-          "fr": "Moyenne",
-          "hi": "मध्यम",
-          "it": "Medium",
-          "ja": "中",
-          "ko": "보통",
-          "nb": "Middels",
-          "nl": "Gemiddeld",
-          "pt-BR": "Médio",
-          "pt-PT": "Médio",
-          "sv": "Medium",
-          "th": "ปานกลาง",
-          "zh-CN": "中等",
-          "zh-TW": "中等"
-        },
-        "value": "medium"
-      },
-      {
-        "label": {
-          "da": "Stor",
-          "de": "Groß",
-          "en": "Large",
-          "es": "Grande",
-          "fi": "Suuri",
-          "fr": "Grande",
-          "hi": "बड़ा",
-          "it": "Large",
-          "ja": "大",
-          "ko": "라지",
-          "nb": "Stor",
-          "nl": "Groot",
-          "pt-BR": "Grande",
-          "pt-PT": "Grande",
-          "sv": "Stor",
-          "th": "ใหญ่",
-          "zh-CN": "大",
-          "zh-TW": "大型"
-        },
-        "value": "large"
-      },
-      {
-        "label": {
-          "da": "Ekstra stor",
-          "de": "Extra groß",
-          "en": "Extra Large",
-          "es": "Extra grande",
-          "fi": "Erikoissuuri",
-          "fr": "Très grande",
-          "hi": "अतिरिक्त बड़ा",
-          "it": "Molto grande",
-          "ja": "特大",
-          "ko": "특대",
-          "nb": "Ekstra stort",
-          "nl": "Extra groot",
-          "pt-BR": "Extra grande",
-          "pt-PT": "Extra grande",
-          "sv": "Extra stor",
-          "th": "ขนาดใหญ่พิเศษ",
-          "zh-CN": "特大",
-          "zh-TW": "超大型"
-        },
-        "value": "x-large"
-      }
-    ]
-  }
-
   ],
   "blocks": [
-
     {
       "type": "quote",
       "name": {
@@ -353,6 +188,11 @@
             "zh-CN": "作者姓名",
             "zh-TW": "作者名稱"
           }
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
         }
       ]
     }
@@ -363,7 +203,7 @@
         "da": "Udtalelser",
         "de": "Testimonials",
         "en": "Testimonials",
-        "es": "Testimonios",
+        "es": "Testimonios ",
         "fi": "Suositukset",
         "fr": "Témoignages",
         "hi": "प्रमाणपत्र",

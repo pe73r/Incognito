@@ -1,3 +1,4 @@
+<a name="contact-us">
 <section id="section-{{ section.id }}" class="section " data-section-id="{{ section.id }}" data-section-type="contact">
 	<div class="container--large container--bordered relative {% if template == "page.contact" %} ContactPadding {% endif %}">
 	<div class="section--form">
@@ -21,23 +22,23 @@
 					<input class="input input--full" type="text"
 						name="contact[name]"
 						id="ContactFormName"
-						placeholder="{{ 'contact.form.name' | t }}"
+						placeholder="Nom"
 						value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
 				</div>
-				<div class="1/2--handheld-and-up grid__cell contact__field">
-					<!-- <label class="contact__label" for="ContactFormLastName">{{ 'contact.form.lastname' | t }}</label> -->
+				<!-- <div class="1/2--handheld-and-up grid__cell contact__field">
+					<label class="contact__label" for="ContactFormLastName">{{ 'contact.form.lastname' | t }}</label>
 					<input class="input input--full" type="text"
 					  name="contact[lastname]"
 						id="ContactFormlastName"
 						placeholder="{{ 'contact.form.lastname' | t }}"
 						value="{% if form.lastname %}{{ form.lastname }}{% elsif customer %}{{ customer.lastname }}{% endif %}" required>
-				</div>
+				</div> -->
 				<div class="1/2--handheld-and-up grid__cell contact__field">
 					<!-- <label class="contact__label" for="ContactFormCompany">{{ 'contact.form.company' | t }}</label> -->
 					<input class="input input--full" type="text"
 					  name="contact[company]"
 						id="ContactFormCompany"
-						placeholder="{{ 'contact.form.company' | t }}"
+						placeholder="Entreprise"
 						value="{% if form.company %}{{ form.company }}{% elsif customer %}{{ customer.company }}{% endif %}" required>
 				</div>
 				<div class="1/2--handheld-and-up grid__cell contact__field">
@@ -45,23 +46,23 @@
 					<input class="input input--full" type="text"
 					  name="contact[shop]"
 						id="ContactFormFunction"
-						placeholder="{{ 'contact.form.shop' | t }}"
+						placeholder="Url boutique shopiy"
 						value="{% if form.shop %}{{ form.shop }}{% elsif customer %}{{ customer.shop }}{% endif %}">
 				</div>
-				<div class="1/2--handheld-and-up grid__cell contact__field">
-					<!-- <label class="contact__label" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label> -->
+				<!-- <div class="1/2--handheld-and-up grid__cell contact__field">
+					<label class="contact__label" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
 					<input class="input input--full" type="text"
 					  name="contact[phone]"
 						id="ContactFormPhone"
 						placeholder="{{ 'contact.form.phone' | t }}"
 						value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" required>
-				</div>
+				</div> -->
 				<div class="1/2--handheld-and-up grid__cell contact__field">
 					<!-- <label class="contact__label" for="ContactFormEmail">{{ 'contact.form.email' | t }}</label> -->
 					<input class="input input--full" type="email"
 						name="contact[email]"
 						id="ContactFormEmail"
-						placeholder="{{ 'contact.form.email' | t }}"
+						placeholder="Email"
 						value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
 						spellcheck="false"
 						autocomplete="off"
@@ -175,21 +176,21 @@
     </div>
 		<!-- Text area -->
     <div class="form__text-area">
-			<h2 class="h2 Heading">Decrivez votre problem</h2>
+			<h2 class="h2 Heading">Décrivez votre projet</h2> 
 			 <!-- <h2 class="h2">Décrivez votre projet en quelques lignes</h2> -->
 	     	 <div class="contact__field">
 						<!-- <label class="contact__label" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label> -->
 						<textarea class="input input--full" rows="10"
 							name="contact[body]"
 							id="ContactFormMessage"
-							placeholder="{{ 'contact.form.message' | t }}" required>
+							placeholder="Message" required>
 							{%- if form.body -%}
 							{{- form.body -}}
 							{%- endif -%}
 						</textarea>
 					</div>
 					<div class="align-left">
-						<input data-contact-submit class="button button-custom" type="submit" value="{{ 'contact.form.send' | t }}">
+						<input data-contact-submit class="button button-custom" type="submit" value="Envoyer">
 					</div>
 		</div>
 		{% endform %}
@@ -200,6 +201,7 @@
     </div>
 	</div>
 </section>
+</a>
 {% schema %}
 {
   "name": "Contact Form",
