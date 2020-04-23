@@ -1,3 +1,10 @@
+<style>
+	 {% for block in section.blocks %}
+       #block--{{ block.id }} .SliderTitleMobile{
+         color: {{ block.settings.color-title-mobile }};
+			  }
+	 {% endfor %}
+</style>
 <section class="section HomepageSlider relative">
 	<div class="container--large container--bordered ">
 		<div class="hero hero--{{ section.settings.hero_size }}">
@@ -12,7 +19,7 @@
 									<p>{{ block.settings.dev-subtitle }}</p>
 							 </div>
 			         <div class="SliderContent">
-			           <h2 class="Heading">{{ block.settings.title }}</h2> 
+			           <h2 class="Heading">{{ block.settings.title }}</h2>
 								 <div class="">
 								 	 {{ block.settings.content }}
 								 </div>
@@ -25,9 +32,9 @@
 						 </div>
 					  </div>
 						<div class="SliderMobile mobile-only">
-							<h2  class="h1">Quelques exemples</h2>
+							<!-- <h2  class="h1">Quelques exemples</h2> -->
 							<img class="full-width" src="{{ block.settings.slide-mobile | img_url:'master' }}" alt="{{ section.settings.slide-1.alt }}">
-							<h2 class="">{{ block.settings.title }}</h2>
+							<h2 class="Heading h1 outline SliderTitleMobile">{{ block.settings.title }}</h2>
 							<div class="">
 								{{ block.settings.content }}
 							</div>
@@ -57,9 +64,8 @@
 						 </div>
 						</div>
 						<div class="SliderMobile mobile-only">
-							<h2 class="h1">Quelques exemples</h2>
 							<img class="full-width" src="{{ block.settings.slide-mobile | img_url:'master' }}" alt="{{ section.settings.slide-1.alt }}">
-							<h2>{{ block.settings.title }}</h2>
+							<h2 class="Heading h1 outline SliderTitleMobile">{{ block.settings.title }}</h2>
 							<div class="">
 								{{ block.settings.content }}
 							</div>
@@ -302,6 +308,12 @@
 					  "type": "url",
 					  "id": "url",
 					  "label": "Boton link"
+					},
+					{
+					  "type": "color",
+					  "id": "color-title-mobile",
+					  "label": "Color title mobile",
+					  "default": "#FDDB58"
 					}
 	    ]
 	  },
@@ -353,7 +365,13 @@
 					"type": "url",
 					"id": "url",
 					"label": "Boton link"
-				}
+				},
+				{
+					"type": "color",
+					"id": "color-title-mobile",
+					"label": "Color title mobile",
+					"default": "#C6E5D7"
+				} 
 	    ]
 	  }
 	]

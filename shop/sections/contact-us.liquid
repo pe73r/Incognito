@@ -176,7 +176,7 @@
     </div>
 		<!-- Text area -->
     <div class="form__text-area">
-			<h2 class="h2 Heading">Décrivez votre projet</h2> 
+			<h2 class="h2 Heading">Décrivez votre projet</h2>
 			 <!-- <h2 class="h2">Décrivez votre projet en quelques lignes</h2> -->
 	     	 <div class="contact__field">
 						<!-- <label class="contact__label" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label> -->
@@ -189,7 +189,7 @@
 							{%- endif -%}
 						</textarea>
 					</div>
-					<div class="align-left">
+					<div class="ContactusButton">
 						<input data-contact-submit class="button button-custom" type="submit" value="Envoyer">
 					</div>
 		</div>
@@ -202,6 +202,16 @@
 	</div>
 </section>
 </a>
+<style >
+	@media screen and (max-width: 500px) {
+		.ContactMegaTitle{
+	     color: {{ section.settings.contact-title-color }};
+			 text-transform: uppercase;
+			 text-align: center; 
+		 }
+	 }
+	 //
+</style>
 {% schema %}
 {
   "name": "Contact Form",
@@ -215,7 +225,14 @@
         "type": "image_picker",
         "id": "image",
         "label": "Image"
-      }
+      },
+			{
+			  "type": "color",
+			  "id": "contact-title-color",
+			  "label": "Title color",
+			  "default": "#FFDFEB",
+			  "info": "only in mobile!"
+			}
   ],
   "presets": [
 		{

@@ -2865,7 +2865,7 @@ textarea {
 }
 
 hr {
-  margin: $gutter-site 0;
+  margin: 20px 0;
   border: 0;
   border-bottom: 1px solid $color-border;
 }
@@ -4969,11 +4969,12 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 
   @include media-query($small) {
-    padding-left: $gutter-site-mobile;
+    // padding-left: $gutter-site-mobile;
     text-align: left;
 
+
     img {
-      margin: 0;
+       margin: 30px auto;
     }
   }
 }
@@ -9275,6 +9276,16 @@ nav{
 	-webkit-animation-delay:0s; /* Safari 和 Chrome */
 }
 
+@media #{$pocket} {
+  .BannerIntro{
+     height: 80vh;
+  }
+ 
+  .c-banner_text_button {
+      top: inherit;
+      bottom: -25px;
+    }
+}
 
 /*================ Text centered ================*/
 
@@ -9371,7 +9382,7 @@ nav{
 }
 .PropositionsImage{
   width: 100%;
-  max-width: 270px;
+  max-width: 290px;
   margin: auto;
   min-height: 300px;
   margin-top: 20px;
@@ -9393,7 +9404,7 @@ nav{
   }
 
   .block__bordered_top {
-    border-top: 1px solid $color-text;
+    // border-top: 1px solid $color-text;
   }
 
   .PropositionsContent{
@@ -9538,6 +9549,11 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 }
 
 @media #{$thumb}{
+  .SliderMobile{
+    width: 90%;
+    margin: auto;
+  }
+
   .mobile-portfolio{
     .flickity-page-dots {
       bottom: 50px;
@@ -9684,6 +9700,10 @@ html body [data-ca3_iconfont="ETmodules"]::before {
   z-index: -1;
 }
 
+.ContactusButton{
+  text-align: left;
+}
+
 @media #{$pocket}{
 
   .section--form{
@@ -9717,6 +9737,10 @@ html body [data-ca3_iconfont="ETmodules"]::before {
   }
   .form-success{
     width: 90%;
+  }
+
+  .ContactusButton{
+    text-align: center;
   }
 }
 
@@ -9945,6 +9969,7 @@ input:checked ~ .checkmark {
 
      h2{
        margin-top: 15px;
+       text-transform: uppercase;
      }
   }
 
@@ -10020,4 +10045,10 @@ input:checked ~ .checkmark {
   display: flex;
   justify-content: space-between;
   padding: 60px 40px 80px 40px;
+}
+
+@media #{$pocket}{
+  .container--footer{
+    justify-content: center;
+  }
 }
