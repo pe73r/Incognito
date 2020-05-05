@@ -1,33 +1,22 @@
-<section data-section-id="{{ section.id }}" data-section-type="quotes">
-  <div class="container--large container--bordered">
-    <div class="quotes-container">
-   <div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+<div class="page-width" data-section-id="{{ section.id }}" data-section-type="quotes">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
 
   {% if section.blocks.size > 0 %}
     <div class="quotes-wrapper">
-      <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}" data-aos="fade-up" data-aos-duration="4000">
+      <div class="quotes-slider" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
         {% for block in section.blocks %}
-        {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
           <div class="quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
             <blockquote class="quotes-slider__text text-center">
-              {% if block.settings.image != blank %}
-              <div class="quotes--image">
-                <img id="{{ img_id }}"
-                     class="full-width lazyload"
-                     src="{{ block.settings.image | img_url: '300x300' }}"
-                     data-src="{{ img_url }}"
-                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                     data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-                     data-sizes="auto"
-                     alt="{{ block.settings.image.alt | escape }}">
-              </div>
-              {% endif %}
-              <!-- <span class="quote-icon">{% include 'icon-quote' %}</span> -->
+              <span class="quote-icon">{% include 'icon-quote' %}</span>
               {% if block.settings.quote != blank %}
-                <div class="quotes-title h5">{{ block.settings.quote }}</div>
+                <div class="rte-setting rte">{{ block.settings.quote }}</div>
               {% endif %}
               {% if block.settings.author != blank %}
-                <cite><a href="{{ block.settings.url }}">{{ block.settings.author | escape }}</a></cite>
+                <cite>{{ block.settings.author | escape }}</cite>
               {% endif %}
             </blockquote>
           </div>
@@ -40,9 +29,6 @@
     {% include 'no-blocks' %}
   {% endif %}
 </div>
-</div>
-</div>
-</section>
 
 
 
@@ -50,11 +36,11 @@
 {
   "name": {
     "da": "Udtalelser",
-    "de": "Testimonials original",
-    "en": "Testimonials original",
-    "es": "Testimonios original",
+    "de": "Testimonials",
+    "en": "Testimonials",
+    "es": "Testimonios",
     "fi": "Suositukset",
-    "fr": "Témoignages original",
+    "fr": "Témoignages",
     "hi": "प्रमाणपत्र",
     "it": "Testimonial",
     "ja": "お客様の声",
@@ -68,9 +54,53 @@
     "zh-CN": "感言",
     "zh-TW": "推薦文"
   },
-
+  "class": "index-section",
   "max_blocks": 9,
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Udtalelser",
+        "de": "Testimonials",
+        "en": "Testimonials",
+        "es": "Testimonios",
+        "fi": "Suositukset",
+        "fr": "Témoignages",
+        "hi": "प्रमाणपत्र",
+        "it": "Testimonial",
+        "ja": "お客様の声",
+        "ko": "추천",
+        "nb": "Tilbakemeldinger fra kunder",
+        "nl": "Getuigenissen",
+        "pt-BR": "Depoimentos",
+        "pt-PT": "Depoimentos",
+        "sv": "Kundberättelser",
+        "th": "เสียงชื่นชมจากลูกค้า",
+        "zh-CN": "感言",
+        "zh-TW": "推薦文"
+      }
+    }
   ],
   "blocks": [
     {
@@ -96,11 +126,6 @@
         "zh-TW": "推薦文"
       },
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
         {
           "type": "richtext",
           "id": "quote",
@@ -188,11 +213,6 @@
             "zh-CN": "作者姓名",
             "zh-TW": "作者名稱"
           }
-        },
-        {
-          "type": "url",
-          "id": "url",
-          "label": "Link"
         }
       ]
     }
@@ -203,7 +223,7 @@
         "da": "Udtalelser",
         "de": "Testimonials",
         "en": "Testimonials",
-        "es": "Testimonios ",
+        "es": "Testimonios",
         "fi": "Suositukset",
         "fr": "Témoignages",
         "hi": "प्रमाणपत्र",

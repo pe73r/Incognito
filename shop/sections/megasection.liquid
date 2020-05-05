@@ -7,10 +7,10 @@
 	  {% include 'image-text-block' %}
 
   {% elsif block.type == 'text-centered' %}
-    {% include 'text-centered' %} 
+    {% include 'text-centered' %}
 
-	{% elsif block.type == 'slider' %}
-	  {% include 'slider' %}
+	{% elsif block.type == 'quotes' %}
+	  {% include 'quotes' %}
 
   {% elsif block.type == 'mobile-slider' %}
   	  {% include 'mobile-slider' %}
@@ -61,10 +61,66 @@
       ]
     },
     {
-      "type": "slider",
-      "name": "Slider",
+      "type": "quotes",
+      "name": "Quotes",
       "settings": [
-
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Avis"
+      },
+      {
+        "type": "text",
+        "id": "author-1",
+        "label": "Author 1",
+        "default": "Author 1"
+      },
+      {
+        "type": "text",
+        "id": "quote-1",
+        "label": "Quote 1",
+        "default": "Quote 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-1",
+        "label": "image 1"
+      },
+      {
+        "type": "text",
+        "id": "author-2",
+        "label": "Author 2",
+        "default": "Author 2"
+      },
+      {
+        "type": "text",
+        "id": "quote-2",
+        "label": "Quote 2",
+        "default": "Quote 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-2",
+        "label": "image 2"
+      },
+      {
+        "type": "text",
+        "id": "author-3",
+        "label": "Author asdad",
+        "default": "Author 3"
+      },
+      {
+        "type": "text",
+        "id": "quote-3",
+        "label": "Quote 4",
+        "default": "Quote 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-3",
+        "label": "image 3"
+      }
       ]
     },
     {
